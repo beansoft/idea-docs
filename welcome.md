@@ -1,16 +1,15 @@
 ---
-title: IntelliJ Platform SDK
+title: IntelliJ 平台 SDK
 redirect_from:
   - /index.html
 ---
 
-[![官方JetBrains项目](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
-[![加入聊天 Slack](https://img.shields.io/badge/Slack-%23intellij--platform-blue?style=flat-square&logo=slack)](https://plugins.jetbrains.com/slack)
+
+[![官方JetBrains项目](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub) [![Twitter Follow](https://img.shields.io/twitter/follow/JBPlatform?style=flat-square&logo=twitter)](https://twitter.com/JBPlatform/) [![加入聊天 Slack](https://img.shields.io/badge/Slack-%23intellij--platform-blue?style=flat-square&logo=slack)](https://plugins.jetbrains.com/slack)
 
 
-欢迎使用_IntelliJ Platform_ SDK.
-这是扩展_IntelliJ Platform_的文档的主要来源,通过创建插件,自定义语言支持或构建自定义IDE.
-
+欢迎使用 IntelliJ Platform SDK - 
+这是扩展 IntelliJ Platform 的文档的主要来源,通过创建插件,自定义语言支持或构建自定义IDE.
 
 ## 入门
 
@@ -18,7 +17,7 @@ redirect_from:
 * [**什么是IntelliJ平台?**](intro/intellij_platform.md)
 
 * [**关于本指南**](intro/about.md)
-    
+
 * [**关键主题**](intro/key_topics.md)
 
 * [**获得帮助**](intro/getting_help.md)
@@ -26,54 +25,6 @@ redirect_from:
 * [**入门**](/basics/getting_started.md)
 
 * [**有用的链接**](/appendix/resources/useful_links.md)
-
-
-## Getting Started
-
-| SDK Docs Trail                                   | Webinar                                                                                                                                                                                         |
-|--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [**什么是IntelliJ平台?**](intro/intellij_platform.md) | Watch [Busy Plugin Developers #0](https://www.youtube.com/watch?v=-6D5-xEaYig) to get started with developing plugins and publishing on [JetBrains Marketplace](https://plugins.jetbrains.com). |
-|                                                  |                                                                                                                                                                                                 |
-|                                                  |                                                                                                                                                                                                 |
-|                                                  |                                                                                                                                                                                                 |
-|                                                  |                                                                                                                                                                                                 |
-|                                                  |                                                                                                                                                                                                 |
-|                                                  |                                                                                                                                                                                                 |
-
-
-<table>
-<tr>
-<th>
-SDK Docs Trail
-</th>
-<th>
-Webinar
-</th>
-</tr>
-<tr>
-<td>
-
-
-* [](about.md)
-* [](plugin_alternatives.md)
-* [](getting_started.md)
-* [](explore_api.md)
-* [](useful_links.md)
-* [](learning_resources.md)
-
-</td>
-
-<td width="50%">
-
-Watch [Busy Plugin Developers #0](https://www.youtube.com/watch?v=-6D5-xEaYig) to get started with developing plugins and publishing on [JetBrains Marketplace](https://plugins.jetbrains.com).
-<br/>
-<br/>
-
-<video href="-6D5-xEaYig" title="Busy Plugin Developers #0" width="300"/>
-
-</td>
-</tr>
-</table>
 
 ## 开源
 
@@ -92,4 +43,6 @@ Watch [Busy Plugin Developers #0](https://www.youtube.com/watch?v=-6D5-xEaYig) t
 有关最新更改,请参阅[最近更新](recent_updated.md).
 在Twitter上关注[JBPlatform](https://twitter.com/JBPlatform/),访问[JetBrains平台博客](https://blog.jetbrains.com/platform/)获取最新公告.
 
+## 备注
+本文档基于 [https://github.com/kana112233/intellij-sdk-docs-cn](https://github.com/kana112233/intellij-sdk-docs-cn) 的热心工作并有修改.
 

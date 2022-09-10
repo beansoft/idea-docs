@@ -2,12 +2,12 @@
 title: IntelliJ Platform 是什么?
 ---
 
-_IntelliJ Platform_本身并不是产品,而是提供构建IDE的平台.
-它用于为JetBrains产品提供动力,如[IntelliJ IDEA](https://www.jetbrains.com/idea/),[WebStorm](https://www.jetbrains.com/webstorm/),[RubyMine](https://www.jetbrains.com/ruby/),[DataGrip](https://www.jetbrains.com/datagrip/)和[Rider](https://www.jetbrains.com/rider/).
+IntelliJ Platform 本身并不是产品,而是提供构建IDE的平台.
+它用于为JetBrains产品提供基础能力, 如[IntelliJ IDEA](https://www.jetbrains.com/idea/),[WebStorm](https://www.jetbrains.com/webstorm/),[RubyMine](https://www.jetbrains.com/ruby/),[DataGrip](https://www.jetbrains.com/datagrip/)和[Rider](https://www.jetbrains.com/rider/).
 它也是开源的,第三方可以使用它来构建IDE,例如来自Google的[Android Studio](https://developer.android.com/studio/index.html).
 
 
-_IntelliJ Platform_提供了这些IDE提供丰富语言工具支持所需的所有基础结构.
+_IntelliJ Platform_ 提供了这些IDE提供丰富语言工具支持所需的所有基础结构.
 它提供了一个基于组件驱动,跨平台JVM的应用程序主机,具有高级用户界面工具包,用于创建工具窗口,树视图和列表(支持快速搜索)以及弹出菜单和对话框.
 
 
@@ -18,39 +18,38 @@ _IntelliJ Platform_提供了这些IDE提供丰富语言工具支持所需的所�
 它还提供了非常丰富的调试体验的基础结构,具有语言无关的高级断点支持,调用堆栈,监视窗口和表达式评估.
 
 
-但_IntelliJ Platform_的真正力量来自程序结构接口(PSI).
+但 _IntelliJ Platform_ 的真正力量来自程序结构接口(PSI).
 这是一组功能,可用于解析文件和构建代码的丰富语法和语义模型,以及从此数据构建索引.
 这提供了许多功能,从快速导航到文件,类型和符号,到代码完成窗口的内容,查找用法,代码检查和代码重写,快速修复或重构,以及许多其他功能.
 
 
-_IntelliJ Platform_包括多种语言的解析器和PSI模型,其可组合性意味着可以添加对其他语言的支持.
+_IntelliJ Platform_ 包括多种语言的解析器和PSI模型,其可组合性意味着可以添加对其他语言的支持.
 
 
 ## 插件
 
-
-构建在_IntelliJ Platform_上的产品是可组合的应用程序,平台负责组件的创建,以及将依赖项注入类中. 
-_IntelliJ Platform_完全支持插件,JetBrains托管[插件存储库](https://plugins.jetbrains.com),可用于分发支持一个或多个产品的插件.
+构建在 _IntelliJ Platform_ 上的产品是可组合的应用程序,平台负责组件的创建,以及将依赖项注入类中. 
+_IntelliJ Platform_ 完全支持插件,JetBrains托管[插件存储库](https://plugins.jetbrains.com),可用于分发支持一个或多个产品的插件.
 也可以托管自己的存储库,并单独分发插件.
 
 
 插件可以通过多种方式扩展平台,从添加简单的菜单项到添加对完整语言,构建系统和调试器的支持. 
-_IntelliJ Platform_中的许多现有功能都是作为插件编写的,可以根据最终产品的需要包含或排除这些插件.
+_IntelliJ Platform_ 中的许多现有功能都是作为插件编写的,可以根据最终产品的需要包含或排除这些插件.
 有关详细信息,请参阅[插件](/basics.md)一节.
 
 
 _IntelliJ Platform_是一个JVM应用程序,主要使用Java和Kotlin编写.
-您应该熟悉这些语言和相关工具,以便为基于_IntelliJ Platform_的产品编写插件.
+您应该熟悉这些语言和相关工具,以便为基于 _IntelliJ Platform_ 的产品编写插件.
 目前,无法以非JVM语言扩展_IntelliJ Platform_.
 
 
 ## 开源
 
 
-_IntelliJ Platform_是开源,在[Apache许可证](upsource:///LICENSE.txt)和[托管在GitHub](https://github.com/JetBrains/intellij-community)下.
+_IntelliJ Platform_ 是开源在[Apache许可证](upsource:///LICENSE.txt)和[托管在GitHub](https://github.com/JetBrains/intellij-community)之下.
 
 
-虽然本指南将_IntelliJ Platform_作为一个单独的实体引用,但没有“IntelliJ平台”GitHub回购.
+虽然本指南将_IntelliJ Platform_ 作为一个单独的实体引用,但并不存在“IntelliJ平台”GitHub仓库.
 相反,该平台被认为与IntelliJ IDEA社区版几乎完全重叠,IntelliJ IDEA社区版是IntelliJ IDEA Ultimate的免费开源版本(上面链接的GitHub repo是[JetBrains/intellij-community](https://github.com/JetBrains/intellij-community)repo).
 
 
