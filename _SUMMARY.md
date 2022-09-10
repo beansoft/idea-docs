@@ -2,7 +2,7 @@
 
 * [简介](welcome.md)
 * [IntelliJ平台](intro/intellij_platform.md)
-    * [有助于IntelliJ平台](basics/platform_contributions.md)
+    * [贡献IntelliJ平台](basics/platform_contributions.md)
     * [IntelliJ平台编码指南](basics/intellij_coding_guidelines.md)
 * [IntelliJ平台SDK](intro/about.md) 
     * [关键主题](intro/key_topics.md) 

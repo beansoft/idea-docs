@@ -1,5 +1,5 @@
 ---
-title: Contributing to the IntelliJ Platform
+title: 贡献IntelliJ平台
 ---
 
 请务必阅读[行为准则](../CODE_OF_CONDUCT.md).

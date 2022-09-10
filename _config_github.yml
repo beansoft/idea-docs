@@ -3,8 +3,8 @@ product_name: IntelliJ Platform SDK
 product_version:
 product_type: DevGuide
 
-url: https://ideplugin.gitee.io
-baseurl: /ideplugin/
+url: https://kana112233.github.io
+baseurl: /intellij-sdk-docs-cn/
 
 description: Documentation for working with and extending the IntelliJ Platform SDK
 
@@ -14,5 +14,5 @@ upsource:
   repo: idea-ce
   commit: 4f9b5f89b2a19ce700b1373a465c16b28ed8ad52
 
-github_repo: ideplugin/intellij-sdk-docs-cn
+github_repo: kana112233/kana112233.github.io
 youtrack_project: IJSDK

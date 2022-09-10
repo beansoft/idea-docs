@@ -5,8 +5,7 @@ redirect_from:
 ---
 
 [![官方JetBrains项目](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
-
-[![加入聊天https://gitter.im/JetBrains/gradle-intellij-plugin](https://badges.gitter.im/JetBrains/intellij-sdk-docs.svg)](https://gitter.im/IntelliJ-Plugin-Developers/Lobby)
+[![加入聊天 Slack](https://img.shields.io/badge/Slack-%23intellij--platform-blue?style=flat-square&logo=slack)](https://plugins.jetbrains.com/slack)
 
 
 欢迎使用_IntelliJ Platform_ SDK.
@@ -29,7 +28,54 @@ redirect_from:
 * [**有用的链接**](/appendix/resources/useful_links.md)
 
 
-##开源
+## Getting Started
+
+| SDK Docs Trail                                   | Webinar                                                                                                                                                                                         |
+|--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [**什么是IntelliJ平台?**](intro/intellij_platform.md) | Watch [Busy Plugin Developers #0](https://www.youtube.com/watch?v=-6D5-xEaYig) to get started with developing plugins and publishing on [JetBrains Marketplace](https://plugins.jetbrains.com). |
+|                                                  |                                                                                                                                                                                                 |
+|                                                  |                                                                                                                                                                                                 |
+|                                                  |                                                                                                                                                                                                 |
+|                                                  |                                                                                                                                                                                                 |
+|                                                  |                                                                                                                                                                                                 |
+|                                                  |                                                                                                                                                                                                 |
+
+
+<table>
+<tr>
+<th>
+SDK Docs Trail
+</th>
+<th>
+Webinar
+</th>
+</tr>
+<tr>
+<td>
+
+
+* [](about.md)
+* [](plugin_alternatives.md)
+* [](getting_started.md)
+* [](explore_api.md)
+* [](useful_links.md)
+* [](learning_resources.md)
+
+</td>
+
+<td width="50%">
+
+Watch [Busy Plugin Developers #0](https://www.youtube.com/watch?v=-6D5-xEaYig) to get started with developing plugins and publishing on [JetBrains Marketplace](https://plugins.jetbrains.com).
+<br/>
+<br/>
+
+<video href="-6D5-xEaYig" title="Busy Plugin Developers #0" width="300"/>
+
+</td>
+</tr>
+</table>
+
+## 开源
 
 
 本指南是开源的,并在Apache 2.0下获得许可.

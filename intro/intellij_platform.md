@@ -1,5 +1,5 @@
 ---
-title: What is the IntelliJ Platform?
+title: IntelliJ Platform 是什么?
 ---
 
 _IntelliJ Platform_本身并不是产品,而是提供构建IDE的平台.

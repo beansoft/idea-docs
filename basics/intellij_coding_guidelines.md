@@ -1,5 +1,5 @@
 ---
-title: IntelliJ Platform Coding Guidelines
+title: IntelliJ 平台编码规范
 ---
 
 如果您要编写想要为IntelliJ平台贡献的代码(作为补丁或插件),遵循这些指导原则将使JetBrains开发团队更容易查看和接受您的更改.

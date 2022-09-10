@@ -1,5 +1,5 @@
 ---
-title: Registering a File Type
+title: 注册文件类型
 ---
 
 开发自定义语言插件的第一步是注册与该语言关联的文件类型.
