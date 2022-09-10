@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//reference_guide/project_wizard.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//reference_guide/project_wizard.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="Project Wizard. Adding Support for Creating New Project Types." />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-09T23:57:17+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="Project Wizard. Adding Support for Creating New Project Types." />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="reference_guide/project_wizard">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -84,19 +78,22 @@ var _hmt = _hmt || [];
             <div class="container">
                 <article class="article" data-shortcut-switcher="false">
                     <div class="navigation-links _top" data-swiftype-index="false">
-
+                        
                         <a class="navigation-links__next" href="/tutorials/project_wizard.html">Project Wizard</a>
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/reference_guide/project_wizard.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>Project Wizard. Adding Support for Creating New Project Types.</h1>
-                    <h2>项目向导</h2>
+                    <p>##项目向导</p>
 
 <p>使用项目向导可以使用</p>
 
 <p><a href="https://github.com/bulenkov/RedlineSmalltalk" data-bypass="yes" target="_blank"><span>RedLine SmallTalk插件</span></a></p>
 
-<h2>实现新模块类型</h2>
+<p>##实现新模块类型</p>
 
 <p>通常通过实现附加到项目的某些模块类型来完成对特定工具和技术的额外支持.</p>
 
@@ -104,7 +101,7 @@ var _hmt = _hmt || [];
 
 <p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/lang-api/src/com/intellij/openapi/module/ModuleType.java" data-bypass="yes" target="_blank"><span>ModuleType</span></a>.</p>
 
-<h2>项目向导</h2>
+<p>##项目向导</p>
 
 <p>可以在包中找到配置自定义项目向导的主要实用程序</p>
 
@@ -122,7 +119,7 @@ var _hmt = _hmt || [];
 
 <p>*初始环境配置</p>
 
-<h3>模块类型</h3>
+<p>###模块类型</p>
 
 <p>创建新模块类型和扩展名</p>
 
@@ -138,7 +135,7 @@ The following
 <a href="https://github.com/bulenkov/RedlineSmalltalk/blob/master/src/st/redline/smalltalk/module/RsModuleType.java" data-bypass="yes" target="_blank"><span>module type implementation</span></a>
 of a custom module type show how this instance can be registered and implemented.</p>
 
-<h3>实现Module Builder</h3>
+<p>###实现Module Builder</p>
 
 <p>设置新模块环境</p>
 
@@ -188,7 +185,7 @@ of a custom module type show how this instance can be registered and implemented
 
 <p>可以派生出来.</p>
 
-<h3>实现Module Builder Listener</h3>
+<p>###实现Module Builder Listener</p>
 
 <p>模块构建器侦听器对新模块创建做出反应,这可以作为项目创建过程的一部分来完成,</p>
 
@@ -208,7 +205,7 @@ For more details please see the following
 <a href="https://github.com/bulenkov/RedlineSmalltalk/blob/master/src/st/redline/smalltalk/module/RsModuleType.java" data-bypass="yes" target="_blank"><span>SmallTalk custom module type</span></a>
 implementation.</p>
 
-<h3>添加新向导步骤</h3>
+<p>###添加新向导步骤</p>
 
 <p>可以通过覆盖模块向导来添加新步骤</p>
 
@@ -239,7 +236,7 @@ which has two methods to be overridden:</p>
   </li>
 </ul>
 
-<h2>方面</h2>
+<p>##方面</p>
 
 <p>IntelliJ中的构面是存储多种特定于模块的设置的方式,例如,在某些给定模块中提供语言支持或框架.</p>
 
@@ -249,9 +246,9 @@ which has two methods to be overridden:</p>
 
 <p>文档部分.</p>
 
-<h2>实现项目结构检测器</h2>
+<p>##实现项目结构检测器</p>
 
-<p>要在从现有源导入项目时支持模块的创建,请扩展<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/java/idea-ui/src/com/intellij/ide/util/projectWizard/importSources/ProjectStructureDetector.java" data-bypass="yes" target="_blank"><span>ProjectStructureDetector</span></a>
+<p>要在从现有源导入项目时支持模块的创建,请扩展<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/java/idea-ui/src/com/intellij/ide/util/projectWizard/importSources/ProjectStructureDetector.java" data-bypass="yes" target="_blank"><span>ProjectStructureDetector</span></a> 
 .</p>
 
 <p>要检测文件,模块支持实现</p>
@@ -288,11 +285,11 @@ which has two methods to be overridden:</p>
 
 
                     <div class="navigation-links _bottom" data-swiftype-index="false">
-
+                        
                         <a class="navigation-links__next" href="/tutorials/project_wizard.html">Project Wizard</a>
                     </div>
                     <div class="last-modified">
-                        Last modified: 28 August 2019
+                        Last modified: 9 May 2019
                     </div>
                 </article>
 

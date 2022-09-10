@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//reference_guide/project_model/module.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//reference_guide/project_model/module.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="Module" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-11T20:37:03+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="Module" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="reference_guide/project_model/module">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -87,7 +81,10 @@ var _hmt = _hmt || [];
                         <a class="navigation-links__prev" href="/reference_guide/project_model/project.html">Project</a>
                         <a class="navigation-links__next" href="/reference_guide/project_model/sdk.html">SDK</a>
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/reference_guide/project_model/module.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>Module</h1>
                     <p>_module_是一个独立的功能单元,可以独立运行,测试和调试.
@@ -144,11 +141,11 @@ var _hmt = _hmt || [];
 
 <p>本节讨论如何完成与模块管理相关的一些常见任务.</p>
 
-<h3>如何获得项目包含的模块列表？</h3>
+<p>###如何获得项目包含的模块列表？</p>
 
 <p>使用<code class="code highlight language-text">ModuleManager.getModules()</code>方法.</p>
 
-<h3>如何获取模块的依赖关系和类路径？</h3>
+<p>###如何获取模块的依赖关系和类路径？</p>
 
 <p>_Order entries_包括模块使用的SDK,库和其他模块.
 使用* IntelliJ IDEA * UI,您可以在* Project Structure *对话框的<a href="https://www.jetbrains.com/help/idea/dependencies-tab.html" data-bypass="yes" target="_blank"><span>Dependencies</span></a>选项卡上查看模块的订单条目
@@ -161,7 +158,7 @@ var _hmt = _hmt || [];
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="n">VirtualFile</span><span class="o">[]</span> <span class="n">roots</span> <span class="o">=</span> <span class="n">ModuleRootManager</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">module</span><span class="o">).</span><span class="na">orderEntries</span><span class="o">().</span><span class="na">classes</span><span class="o">().</span><span class="na">getRoots</span><span class="o">();</span>
 </code></div>
 
-<h3>如何获取模块使用的SDK？</h3>
+<p>###如何获取模块使用的SDK？</p>
 
 <p>使用<code class="code highlight language-text">ModuleRootManager.getSdk()</code>方法.
 此方法返回<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/projectModel-api/src/com/intellij/openapi/projectRoots/Sdk.java" data-bypass="yes" target="_blank"><span>Sdk</span></a>类型的值.</p>
@@ -174,7 +171,7 @@ var _hmt = _hmt || [];
                  <span class="o">+</span> <span class="n">SDK</span><span class="o">.</span><span class="na">getVersionString</span><span class="o">()</span> <span class="o">+</span> <span class="s">" SDK home directory: "</span> <span class="o">+</span> <span class="n">SDK</span><span class="o">.</span><span class="na">getHomePath</span><span class="o">();</span>
 </code></div>
 
-<h3>如何获得该模块直接依赖的模块列表？</h3>
+<p>###如何获得该模块直接依赖的模块列表？</p>
 
 <p>使用<code class="code highlight language-text">ModuleRootManager.getDependencies()</code>方法获取<code class="code highlight language-text">Module</code>类型值的数组或<code class="code highlight language-text">ModuleRootManager.getDependencyModuleNames()</code>以获取模块名称数组.
 为了澄清,请考虑以下代码段:</p>
@@ -184,7 +181,7 @@ var _hmt = _hmt || [];
 <span class="n">String</span><span class="o">[]</span> <span class="n">dependentModulesNames</span> <span class="o">=</span> <span class="n">moduleRootManager</span><span class="o">.</span><span class="na">getDependencyModuleNames</span><span class="o">();</span>
 </code></div>
 
-<h3>如何获取依赖于该模块的模块列表？</h3>
+<p>###如何获取依赖于该模块的模块列表？</p>
 
 <p>使用<code class="code highlight language-text">ModuleManager.getModuleDependentModules(module)</code>方法.</p>
 
@@ -193,7 +190,7 @@ var _hmt = _hmt || [];
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="kt">boolean</span> <span class="n">isDependent</span> <span class="o">=</span> <span class="n">ModuleManager</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">project</span><span class="o">).</span><span class="na">isModuleDependent</span><span class="o">(</span><span class="n">module1</span><span class="o">,</span><span class="n">module2</span><span class="o">);</span>
 </code></div>
 
-<h3>如何获取指定文件或PSI元素所属的模块？</h3>
+<p>###如何获取指定文件或PSI元素所属的模块？</p>
 
 <p>*要获取指定文件所属的项目模块,请使用<code class="code highlight language-text">ModuleUtil.findModuleForFile()</code>静态方法.</p>
 
@@ -207,7 +204,7 @@ var _hmt = _hmt || [];
 
 <p>*要获取指定的<a href="../../basics/architectural_overview/psi_elements.html"><span>PSI元素</span></a>所属的项目模块,请使用<code class="code highlight language-text">ModuleUtil.findModuleForPsiElement(psiElement)</code>方法.</p>
 
-<h3>访问模块根目录</h3>
+<p>###访问模块根目录</p>
 
 <p>可以通过类<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/projectModel-api/src/com/intellij/openapi/roots/ModuleRootManager.java" data-bypass="yes" target="_blank"><span>ModuleRootManager.java</span></a>访问有关模块根的信息.</p>
 
@@ -216,7 +213,7 @@ var _hmt = _hmt || [];
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="n">VirtualFile</span><span class="o">[]</span> <span class="n">contentRoots</span> <span class="o">=</span> <span class="n">ModuleRootManager</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">module</span><span class="o">).</span><span class="na">getContentRoots</span><span class="o">();</span>
 </code></div>
 
-<h3>检查属于模块源根目录</h3>
+<p>###检查属于模块源根目录</p>
 
 <p>要检查虚拟文件或目录是否属于模块源根目录,请使用<code class="code highlight language-text">ProjectFileIndex.getSourceRootForFile</code>方法.
 如果文件或目录不属于项目中任何模块的源根,则此方法返回null.</p>
@@ -224,7 +221,7 @@ var _hmt = _hmt || [];
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="n">VirtualFile</span> <span class="n">moduleSourceRoot</span> <span class="o">=</span> <span class="n">ProjectRootManager</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">project</span><span class="o">).</span><span class="na">getFileIndex</span><span class="o">().</span><span class="na">getSourceRootForFile</span><span class="o">(</span><span class="n">virtualFileOrDirectory</span><span class="o">);</span>
 </code></div>
 
-<h2>接收有关模块更改的通知</h2>
+<p>##接收有关模块更改的通知</p>
 
 <p>要接收有关模块更改的通知(要添加,删除或重命名的模块),</p>
 

@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//intro/sdk_style.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//intro/sdk_style.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="Style Guide for SDK Documents" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-11T20:37:03+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="Style Guide for SDK Documents" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="intro/sdk_style">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -84,10 +78,13 @@ var _hmt = _hmt || [];
             <div class="container">
                 <article class="article" data-shortcut-switcher="false">
                     <div class="navigation-links _top" data-swiftype-index="false">
-
+                        
                         <a class="navigation-links__next" href="/intro/sdk_code_guidelines.html">Guidelines for Creating IntelliJ Platform SDK Code Samples</a>
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/intro/sdk_style.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>Style Guide for SDK Documents</h1>
                     <p>本文档描述了在创作开源IntelliJ Platform SDK文档时使用的书写风格.
@@ -216,7 +213,7 @@ var _hmt = _hmt || [];
 
 <p>一致的术语有助于读者更快地掌握新概念:</p>
 <ul>
-  <li>GitHub存储库<code class="code highlight language-text">intellij-community</code>中的开源代码称为IntelliJ Platform.
+  <li>GitHub存储库<code class="code highlight language-text">intellij-community</code>中的开源代码称为_IntelliJ Platform_.
 使用SDK文档中的完整短语.</li>
   <li>基于IntelliJ平台的IDE被描述为_IntelliJ基于平台的IDEs_.
 一旦在页面上使用该术语,之后作者可以使用IDE</li>
@@ -275,7 +272,7 @@ The syntax is to use the pipe (<code class="code highlight language-text">|</cod
 <h3>链接<a href="#section-6" class="anchor-link"><span></span></a></h3>
 <p>链接作为普通的Markdown链接处理,可以锚定到外部站点,站点内的页面或站点中的标题.
 将Markdown标头转换为HTML标头时,会为其分配一个ID,以便进行链接.
-例如,<code class="code highlight language-text"> Introduction</code>将获得<code class="code highlight language-text">introduction</code>的ID,并且可以在同一页面或跨页面中链接,如下所述.</p>
+例如,<code class="code highlight language-text">## Introduction</code>将获得<code class="code highlight language-text">introduction</code>的ID,并且可以在同一页面或跨页面中链接,如下所述.</p>
 
 <p>IntelliJ平台(<code class="code highlight language-text">intellij-community</code>)存储库中文件的链接使用<code class="code highlight language-text">upsource:///</code>而不是存储库的完整URL.
 <code class="code highlight language-text">upsource:///</code>URI有效地指向<code class="code highlight language-text">intellij-community</code>存储库的根.</p>
@@ -298,7 +295,7 @@ The syntax is to use the pipe (<code class="code highlight language-text">|</cod
     </ul>
   </li>
   <li>链接到SDK文档中页面上的特定_sections_.
-锚名称全部为小写,空格用<code class="code highlight language-text">-</code>替换,例如<code class="code highlight language-text"> Page setup</code>变为<code class="code highlight language-text">#page-setup</code>.
+锚名称全部为小写,空格用<code class="code highlight language-text">-</code>替换,例如<code class="code highlight language-text">## Page setup</code>变为<code class="code highlight language-text">#page-setup</code>.
     <ul>
       <li><code class="code highlight language-text">[链接到当前页面上的部分](#another-section)</code>链接到当前页面上的标题.</li>
       <li><code class="code highlight language-text">[链接到另一页上的部分](Page2.md#another-section)</code>链接到另一页上的标题.</li>
@@ -373,15 +370,15 @@ The syntax is to use the pipe (<code class="code highlight language-text">|</cod
 <span class="p">    *</span> <span class="p">[</span><span class="nv">Key Topics</span><span class="p">](</span><span class="sx">Intro/KeyTopics.md</span><span class="p">)</span>
 </code></div>
 
-<p>通过将列表分成几个列表,每个新列表以2级标题(<code class="code highlight language-text"></code>)开头,可以将内容拆分为“部分”.</p>
+<p>通过将列表分成几个列表,每个新列表以2级标题(<code class="code highlight language-text">##</code>)开头,可以将内容拆分为“部分”.</p>
 
-<div class="code-block" data-lang="md"><code class="code-block__wrapper"><span class="gh"> Summary</span>
+<div class="code-block" data-lang="md"><code class="code-block__wrapper"><span class="gh"># Summary</span>
 <span class="p">
 *</span> <span class="p">[</span><span class="nv">Introduction</span><span class="p">](</span><span class="sx">README.md</span><span class="p">)</span>
 <span class="p">*</span> <span class="p">[</span><span class="nv">About This Guide</span><span class="p">](</span><span class="sx">Intro/About.md</span><span class="p">)</span>
 <span class="p">    *</span> <span class="p">[</span><span class="nv">Key Topics</span><span class="p">](</span><span class="sx">Intro/KeyTopics.md</span><span class="p">)</span>
 
-<span class="gu"> Part I - Extending the Platform</span>
+<span class="gu">## Part I - Extending the Platform</span>
 <span class="p">*</span> <span class="p">[</span><span class="nv">Getting Started</span><span class="p">](</span><span class="sx">Docs/GettingStarted.md</span><span class="p">)</span>
 <span class="p">*</span> ...
 </code></div>
@@ -393,7 +390,7 @@ The syntax is to use the pipe (<code class="code highlight language-text">|</cod
 
 
                     <div class="navigation-links _bottom" data-swiftype-index="false">
-
+                        
                         <a class="navigation-links__next" href="/intro/sdk_code_guidelines.html">Guidelines for Creating IntelliJ Platform SDK Code Samples</a>
                     </div>
                     <div class="last-modified">

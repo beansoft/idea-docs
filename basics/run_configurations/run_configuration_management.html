@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//basics/run_configurations/run_configuration_management.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//basics/run_configurations/run_configuration_management.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="Run Configuration Management" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-11T20:46:04+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="Run Configuration Management" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="basics/run_configurations/run_configuration_management">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -84,10 +78,13 @@ var _hmt = _hmt || [];
             <div class="container">
                 <article class="article" data-shortcut-switcher="false">
                     <div class="navigation-links _top" data-swiftype-index="false">
-
+                        
                         <a class="navigation-links__next" href="/basics/run_configurations/run_configuration_execution.html">Execution</a>
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/basics/run_configurations/run_configuration_management.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>Run Configuration Management</h1>
                     <p>本文档描述了使用运行配置和常见用例的主要类.</p>
@@ -156,7 +153,7 @@ var _hmt = _hmt || [];
 它支持从其设置自动生成配置名称,并跟踪用户是否更改了名称.</p>
   </li>
   <li>
-    <p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/lang-api/src/com/intellij/execution/configurations/ModuleBasedConfiguration.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">ModuleBasedConfiguration</code></span></a>是与特定模块关联的配置的基类(例如,
+    <p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/lang-api/src/com/intellij/execution/configurations/ModuleBasedConfiguration.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">ModuleBasedConfiguration</code></span></a>是与特定模块关联的配置的基类(例如, 
 Java运行配置使用选定的模块来确定运行类路径.</p>
   </li>
 </ul>
@@ -217,7 +214,7 @@ lang-api/src/com/intellij/execution/configurations/RunConfiguration.java)相应�
 <p>许多插件支持从上下文自动创建运行配置,以便用户可以单击(例如)应用程序或测试类,并使用正确的运行配置类型自动运行它.
 为了支持这一点,您需要提供[<code class="code highlight language-text">RunConfigurationProducer</code>]的实现(upsource:///platform/lang-api/src/com/intellij/execution/actions/RunConfigurationProducer.java)</p>
 
-<p>接口并在``plugin.xml<code class="code highlight language-text">中将其注册为</code><runConfigurationProducer>`.
+<p>接口并在``plugin.xml<code class="code highlight language-text">中将其注册为</code><runConfigurationProducer>`. 
 (请注意,此API已在IntelliJ IDEA 13中重新设计;旧的[`RuntimeConfigurationProducer`](upsource:///platform/lang-api/src/com/intellij/execution/junit/RuntimeConfigurationProducer.java)是一个更多
 混淆版本的相同API).</runConfigurationProducer></p>
 
@@ -237,7 +234,7 @@ lang-api/src/com/intellij/execution/configurations/RunConfiguration.java)相应�
 
 
                     <div class="navigation-links _bottom" data-swiftype-index="false">
-
+                        
                         <a class="navigation-links__next" href="/basics/run_configurations/run_configuration_execution.html">Execution</a>
                     </div>
                     <div class="last-modified">

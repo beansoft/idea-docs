@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//basics/indexing_and_psi_stubs/stub_indexes.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//basics/indexing_and_psi_stubs/stub_indexes.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="Stub Indexes" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-11T20:37:03+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="Stub Indexes" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="basics/indexing_and_psi_stubs/stub_indexes">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -85,9 +79,12 @@ var _hmt = _hmt || [];
                 <article class="article" data-shortcut-switcher="false">
                     <div class="navigation-links _top" data-swiftype-index="false">
                         <a class="navigation-links__prev" href="/basics/indexing_and_psi_stubs/file_based_indexes.html">File-based Indexes</a>
-
+                        
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/basics/indexing_and_psi_stubs/stub_indexes.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>Stub Indexes</h1>
                     <a name="stub-trees" class="elem-anchor"></a>
@@ -135,7 +132,7 @@ interface(<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b
 
 <p>*将您的语言的文件元素类型(从<code class="code highlight language-text">ParserDefinition.getFileNodeType()</code>返回的元素类型)更改为扩展<code class="code highlight language-text">IStubFileElementType</code>的类.</p>
 
-<p>*在你的<code class="code highlight language-text">plugin.xml</code>中,定义<code class="code highlight language-text">&lt;stubElementTypeHolder&gt;</code>扩展并指定包含语言解析器使用的<code class="code highlight language-text">IElementType</code>常量的接口(<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/plugins/properties/src/META" data-bypass="yes" target="_blank"><span>示例</span></a>
+<p>*在你的<code class="code highlight language-text">plugin.xml</code>中,定义<code class="code highlight language-text">&lt;stubElementTypeHolder&gt;</code>扩展并指定包含语言解析器使用的<code class="code highlight language-text">IElementType</code>常量的接口(<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/plugins/properties/src/META" data-bypass="yes" target="_blank"><span>示例</span></a> 
 -INF/plugin.xml中)<!--#L55  -->).</p>
 
 <p>对于序列化字符串数据,例如
@@ -145,7 +142,7 @@ interface(<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b
 
 <p>如果您需要更改存根的存储二进制格式(例如,如果您想存储一些其他数据或一些新元素),请确保提升从您的语言<code class="code highlight language-text">IStubFileElementType.getStubVersion()</code>返回的存根版本
 .
-这将导致重建存根和Stub Indexes,并避免存储的数据格式与尝试加载它的代码之间的不匹配.</p>
+这将导致重建存根和存根索引,并避免存储的数据格式与尝试加载它的代码之间的不匹配.</p>
 
 <p>默认情况下,如果PSI元素扩展了“StubBasedPsiElement”,则该类型的所有元素都将存储在存根树中.
 如果您需要更精确地控制存储哪些元素,请覆盖<code class="code highlight language-text">IStubElementType.shouldCreateStub()</code>并为不应包含在存根树中的元素返回<code class="code highlight language-text">false</code>.</p>
@@ -158,17 +155,17 @@ interface(<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b
 否则,当外部依赖关系发生更改时,将不会重建存根树,并且存根树中将存在过时且不正确的数据.</p>
 
 <a name="section" class="elem-anchor"></a>
-<h2>Stub Indexes<a href="#section" class="anchor-link"><span></span></a></h2>
+<h2>存根索引<a href="#section" class="anchor-link"><span></span></a></h2>
 
 <p>构建存根树时,您可以同时将关于存根元素的一些数据放入多个索引中,然后可以使用相应的键来查找PSI元素.
-与File-based Indexes不同,Stub Indexes不支持将自定义数据存储为值;
+与基于文件的索引不同,存根索引不支持将自定义数据存储为值;
 该值始终是PSI元素.
-Stub Indexes中的键通常是字符串(例如类名);
+存根索引中的键通常是字符串(例如类名);
 如果需要,还支持其他数据类型.</p>
 
-<p>Stub Indexes是扩展[<code class="code highlight language-text">AbstractStubIndex</code>]的类(upsource:///platform/indexing-api/src/com/intellij/psi/stubs/AbstractStubIndex.java).
+<p>存根索引是扩展[<code class="code highlight language-text">AbstractStubIndex</code>]的类(upsource:///platform/indexing-api/src/com/intellij/psi/stubs/AbstractStubIndex.java).
 在最常见的情况下,当键类型为<code class="code highlight language-text">String</code>时,使用更具体的基类,即<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/indexing-api/src/com/intellij/psi/stubs/StringStubIndexExtension.java" data-bypass="yes" target="_blank"><span>StringStubIndexExtension</span></a>.
-Stub Indexes实现类在<code class="code highlight language-text">&lt;stubIndex&gt;</code>扩展点中注册.</p>
+存根索引实现类在<code class="code highlight language-text">&lt;stubIndex&gt;</code>扩展点中注册.</p>
 
 <p>要将数据放入索引,请实现方法<code class="code highlight language-text">IStubElementType.indexStub()</code>(<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/java/java-psi-impl/src/com/intellij/psi/impl/java/stubs/JavaClassElementType.java" data-bypass="yes" target="_blank"><span>example:JavaClassElementType.indexStub()</span></a><!--#L189  -->).
 此方法接受<code class="code highlight language-text">IndexSink</code>作为参数,并为应存储元素的每个索引放入索引ID和键.</p>
@@ -195,7 +192,7 @@ Stub Indexes实现类在<code class="code highlight language-text">&lt;stubIndex
 
                     <div class="navigation-links _bottom" data-swiftype-index="false">
                         <a class="navigation-links__prev" href="/basics/indexing_and_psi_stubs/file_based_indexes.html">File-based Indexes</a>
-
+                        
                     </div>
                     <div class="last-modified">
                         Last modified: 11 May 2019

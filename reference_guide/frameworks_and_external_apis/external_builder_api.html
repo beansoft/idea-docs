@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//reference_guide/frameworks_and_external_apis/external_builder_api.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//reference_guide/frameworks_and_external_apis/external_builder_api.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="External Builder API and Plugins" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-09T23:57:17+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="External Builder API and Plugins" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="reference_guide/frameworks_and_external_apis/external_builder_api">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -84,13 +78,16 @@ var _hmt = _hmt || [];
             <div class="container">
                 <article class="article" data-shortcut-switcher="false">
                     <div class="navigation-links _top" data-swiftype-index="false">
-
-
+                        
+                        
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/reference_guide/frameworks_and_external_apis/external_builder_api.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>External Builder API and Plugins</h1>
-                    <h3>外部构建流程工作流程</h3>
+                    <p>###外部构建流程工作流程</p>
 
 <p>当用户调用涉及执行外部构建(Make,Build Artifacts等)的操作时,会发生以下步骤:</p>
 
@@ -103,7 +100,7 @@ var _hmt = _hmt || [];
 
 <p>*生成外部构建过程(或重用现有构建过程后台进程).</p>
 
-<p>*外部构建过程加载项目模型(.idea,.iml文件等),由[<code class="code highlight language-text">JpsModel</code>]表示(upsource:///jps/model-api/src/org/jetbrains/jps/model
+<p>*外部构建过程加载项目模型(.idea,.iml文件等),由[<code class="code highlight language-text">JpsModel</code>]表示(upsource:///jps/model-api/src/org/jetbrains/jps/model 
 /JpsModel.java)实例.</p>
 
 <p>*根据要编译的每个构建目标的依赖关系,计算要构建的完整目标树.</p>
@@ -122,7 +119,7 @@ var _hmt = _hmt || [];
 
 <p>*后编译任务在IDE过程中执行.</p>
 
-<h3>增量构建</h3>
+<p>###增量构建</p>
 
 <p>为了支持增量构建,构建过程使用许多缓存,这些缓存在构建调用之间保持不变.
 即使您的编译器不支持增量构建,您仍需要报告正确的信息,以便增量构建可以正常地用于其他编译器.</p>
@@ -134,12 +131,12 @@ var _hmt = _hmt || [];
 它通过调用<code class="code highlight language-text">BuildOutputConsumer.registerOutputFile()</code>和<code class="code highlight language-text">ModuleLevelBuilder.OutputConsumer.registerOutputFile()</code>来填充.</p>
   </li>
   <li>
-    <p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/jps/jps-builders/src/org/jetbrains/jps/incremental/storage/Timestamps.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">Timestamps</code></span></a>记录每个源文件在每个构建目标编译时的时间戳.
+    <p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/jps/jps-builders/src/org/jetbrains/jps/incremental/storage/Timestamps.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">Timestamps</code></span></a>记录每个源文件在每个构建目标编译时的时间戳. 
 (如果使用不同的范围多次调用编译并且同时更改了文件,则不同构建目标的最后编译时间戳可能会有所不同.)它由JPS自动更新.</p>
   </li>
 </ul>
 
-<p>IDE监视项目内容的更改,并使用这些缓存中的信息为每个编译生成一组脏文件和已删除文件.
+<p>IDE监视项目内容的更改,并使用这些缓存中的信息为每个编译生成一组脏文件和已删除文件. 
 (需要重新编译脏文件,删除的文件需要删除其输出).
 构建器还可以将其他文件报告为脏(例如,如果删除方法,构建器可以使用此方法将类报告为脏.)模块级构建器可以将一些文件添加到脏范围;
 如果发生这种情况,并且构建器从其<code class="code highlight language-text">build()</code>方法返回<code class="code highlight language-text">ADDITIONAL_PASS_REQUIRED</code>,则将使用新的脏范围启动针对同一模块块的另一轮构建器执行.</p>
@@ -149,7 +146,7 @@ var _hmt = _hmt || [];
 
 <p>要在多个目标之间调用同一构建器之间传递自定义数据,可以使用<code class="code highlight language-text">CompileContext.getUserData()</code>和<code class="code highlight language-text">CompileContext.putUserData()</code>.</p>
 
-<h3>外部构建器中的服务和扩展</h3>
+<p>###外部构建器中的服务和扩展</p>
 
 <p>外部构建器进程使用标准Java</p>
 
@@ -160,11 +157,11 @@ var _hmt = _hmt || [];
 需要通过创建包含实现类的限定名称的“META-INF/services/<service-interface-fqn>”文件来注册服务的实现.例如``BuilderService`实现在`META-INF/services中注册
 /org.jetbrains.jps.incremental.BuilderService`文件.这些文件没有扩展名,因此您需要将相应的模式映射到IDE设置中的文本文件.</service-interface-fqn></p>
 
-<h3>注册外部构建器的插件</h3>
+<p>###注册外部构建器的插件</p>
 
 <p>Sources of a plugin for External Builder should be put in a separate module. By convention such module has name ‘…-jps-plugin’ and its sources are placed under ‘jps-plugin’ directory in the main plugin directory. Use <code class="code highlight language-text">&lt;compileServer.plugin&gt;</code> extension to add the plugin to classpath of external build process, the plugin jar should be named <code class="code highlight language-text">&lt;jps module name&gt;.jar</code>. ‘Build’ | ‘Prepare Plugin Module for deployment’ action will automatically pack ‘jps-plugin’ part to a separate jar accordingly.</p>
 
-<h3>调试外部构建器的插件</h3>
+<p>###调试外部构建器的插件</p>
 
 <p><strong>如果您的测试IDE是IntelliJ IDEA 16.0或更高版本</strong></p>
 
@@ -187,12 +184,12 @@ var _hmt = _hmt || [];
 在IDE的工作副本中,应创建“远程”运行配置并指向此端口.
 指定端口“-1”将禁用调试模式.</p>
 
-<h3>分析外部构建过程</h3>
+<p>###分析外部构建过程</p>
 
 <p>构建过程具有内置的自我分析功能.
 要启用它们,请执行以下操作:</p>
 
-<p>1.将<code class="code highlight language-text">&lt;ide-home&gt;/lib/yjp-controller-api-redist.jar</code>和<code class="code highlight language-text">&lt;ide-home&gt;/bin/yjpagent.*</code>文件复制到<code class="code highlight language-text">&lt;ide-system-dir&gt;/compile-server
+<p>1.将<code class="code highlight language-text">&lt;ide-home&gt;/lib/yjp-controller-api-redist.jar</code>和<code class="code highlight language-text">&lt;ide-home&gt;/bin/yjpagent.*</code>文件复制到<code class="code highlight language-text">&lt;ide-system-dir&gt;/compile-server 
 </code></p>
 
 <ol>
@@ -215,7 +212,7 @@ var _hmt = _hmt || [];
 
 <p>还请提供有关您正在使用的构建过程的内存和其他VM设置的详细信息.</p>
 
-<h3>访问外部构建过程的日志</h3>
+<p>###访问外部构建过程的日志</p>
 
 <p>日志文件位于目录下</p>
 
@@ -230,7 +227,7 @@ var _hmt = _hmt || [];
 
 <p>在版本14.1之前的IntelliJ平台版本中,log4j配置存储在<code class="code highlight language-text">build-log.xml</code>中.</p>
 
-<h3>从External Build访问项目模型和配置</h3>
+<p>###从External Build访问项目模型和配置</p>
 
 <p>外部构建过程中的项目模型由JPS(* JetBrains Project System *)提供.</p>
 
@@ -242,7 +239,7 @@ var _hmt = _hmt || [];
 
 <p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/jps/model-serialization/src/org/jetbrains/jps/model/serialization/JpsModelSerializerExtension.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">JpsModelSerializerExtension</code></span></a>从项目文件加载配置.</p>
 
-<h4>实施构建器</h4>
+<p>####实施构建器</p>
 
 <p>如果您的编译器不参与编译现有的<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/jps/jps-builders/src/org/jetbrains/jps/builders/BuildTarget.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">BuildTarget</code></span></a>,您需要创建一个新的实现
 <code class="code highlight language-text">BuildTarget</code>和<code class="code highlight language-text">BuildTargetType</code>.
@@ -253,11 +250,11 @@ var _hmt = _hmt || [];
 
 
                     <div class="navigation-links _bottom" data-swiftype-index="false">
-
-
+                        
+                        
                     </div>
                     <div class="last-modified">
-                        Last modified: 28 August 2019
+                        Last modified: 9 May 2019
                     </div>
                 </article>
 

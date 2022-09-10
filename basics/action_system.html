@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//basics/action_system.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//basics/action_system.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="Action System" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-11T20:37:03+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="Action System" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="basics/action_system">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -87,7 +81,10 @@ var _hmt = _hmt || [];
                         <a class="navigation-links__prev" href="/reference_guide/ui_themes/themes_intro.html">Custom UI Themes</a>
                         <a class="navigation-links__next" href="/basics/architectural_overview/files.html">Files</a>
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/basics/action_system.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>Action System</h1>
                     <a name="section" class="elem-anchor"></a>
@@ -129,13 +126,13 @@ For example, one of the action classes is responsible for the <strong>File | Ope
 <a name="pluginxml" class="elem-anchor"></a>
 <h3>在plugin.xml中注册操作<a href="#pluginxml" class="anchor-link"><span></span></a></h3>
 
-<p>以下示例演示了在<code class="code highlight language-text">plugin.xml</code>中注册操作.
+<p>以下示例演示了在<code class="code highlight language-text">plugin.xml</code>中注册操作. 
 <code class="code highlight language-text">plugin.xml</code>的示例部分演示了可以在<code class="code highlight language-text">&lt;actions&gt;</code>部分中使用的所有元素,并描述了每个元素的含义.</p>
 
 <div class="code-block" data-lang="xml"><code class="code-block__wrapper"><span class="c">&lt;!-- Actions --&gt;</span>
 <span class="nt">&lt;actions&gt;</span>
   <span class="c">&lt;!-- The &lt;action&gt; element defines an action to register.
-       The mandatory "id" attribute specifies an unique
+       The mandatory "id" attribute specifies an unique 
        identifier for the action.
        The mandatory "class" attribute specifies the
        full-qualified name of the class implementing the action.
@@ -169,12 +166,12 @@ For example, one of the action classes is responsible for the <strong>File | Ope
            keystroke of the action.
            The mandatory "keymap" attribute specifies the keymap for which
            the action is active. IDs of the standard keymaps are defined as
-           constants in the com.intellij.openapi.keymap.KeymapManager class.
+           constants in the com.intellij.openapi.keymap.KeymapManager class. 
            The optional "remove" attribute in the second &lt;keyboard-shortcut&gt;
-           element below means the specified shortcut should be removed from
+           element below means the specified shortcut should be removed from 
            the specified action.
            The optional "replace-all" attribute in the third &lt;keyboard-shortcut&gt;
-           element below means remove all keyboard and mouse shortcuts from the specified
+           element below means remove all keyboard and mouse shortcuts from the specified 
            action before adding the specified shortcut.  --&gt;</span>
     <span class="c">&lt;!-- Add the first and second keystrokes to all keymaps  --&gt;</span>
     <span class="nt">&lt;keyboard-shortcut</span> <span class="na">keymap=</span><span class="s">"$default"</span> <span class="na">first-keystroke=</span><span class="s">"control alt G"</span> <span class="na">second-keystroke=</span><span class="s">"C"</span><span class="nt">/&gt;</span>
@@ -186,7 +183,7 @@ For example, one of the action classes is responsible for the <strong>File | Ope
            action. An action can have several mouse shortcuts.
            The mandatory "keystroke" attribute specifies the clicks and
            modifiers for the action. It is defined as a sequence of words
-           separated by spaces:
+           separated by spaces: 
            "button1", "button2", "button3" for the mouse buttons;
            "shift", "control", "meta", "alt", "altGraph" for the modifier keys;
            "doubleClick" if the action is activated by a double-click of the button.
@@ -197,7 +194,7 @@ For example, one of the action classes is responsible for the <strong>File | Ope
            a &lt;mouse-shortcut&gt; element. See &lt;keyboard-shortcut&gt; for documentation.  --&gt;</span>
     <span class="nt">&lt;mouse-shortcut</span> <span class="na">keymap=</span><span class="s">"$default"</span> <span class="na">keystroke=</span><span class="s">"control button3 doubleClick"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/action&gt;</span>
-  <span class="c">&lt;!-- The &lt;group&gt; element defines an action group. &lt;action&gt;, &lt;group&gt; and
+  <span class="c">&lt;!-- The &lt;group&gt; element defines an action group. &lt;action&gt;, &lt;group&gt; and 
        &lt;separator&gt; elements defined within it are automatically included in the group.
        The mandatory "id" attribute specifies an unique identifier for the action.
        The optional "class" attribute specifies the full-qualified name of
@@ -227,7 +224,7 @@ For example, one of the action classes is responsible for the <strong>File | Ope
 <span class="nt">&lt;/actions&gt;</span>
 </code></div>
 
-<p>从代码注册操作</p>
+<p>##从代码注册操作</p>
 
 <p>要从代码注册操作,需要两个步骤.</p>
 
@@ -238,7 +235,7 @@ For example, one of the action classes is responsible for the <strong>File | Ope
   </li>
   <li>
     <p>其次,需要将操作添加到一个或多个组中.
-要按ID获取操作组的实例,必须调用<code class="code highlight language-text">ActionManager.getAction()</code>并将返回的值强制转换为<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/platform-api/src/com/intellij" data-bypass="yes" target="_blank"><span>DefaultActionGroup</span></a>
+要按ID获取操作组的实例,必须调用<code class="code highlight language-text">ActionManager.getAction()</code>并将返回的值强制转换为<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/platform-api/src/com/intellij" data-bypass="yes" target="_blank"><span>DefaultActionGroup</span></a> 
 /openapi/actionSystem/DefaultActionGroup.java)类.</p>
   </li>
 </ul>

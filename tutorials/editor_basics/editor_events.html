@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//tutorials/editor_basics/editor_events.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//tutorials/editor_basics/editor_events.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="3. Handling Editor Events" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-08T23:56:58+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="3. Handling Editor Events" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="tutorials/editor_basics/editor_events">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -85,26 +79,29 @@ var _hmt = _hmt || [];
                 <article class="article" data-shortcut-switcher="false">
                     <div class="navigation-links _top" data-swiftype-index="false">
                         <a class="navigation-links__prev" href="/tutorials/editor_basics/coordinates_system.html">2. Editor coordinates system. Positions and offsets</a>
-
+                        
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/tutorials/editor_basics/editor_events.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>3. Handling Editor Events</h1>
-                    <p>以下教程集旨在介绍由编辑器事件激活的操作.</p>
+                    <p>以下教程集旨在介绍由编辑器事件激活的操作。</p>
 
-<p>IntelliJ Platform SDK提供了一组回调，用于处理与编辑器相关的事件.</p>
+<p>IntelliJ Platform SDK提供了一组回调，用于处理与编辑器相关的事件。</p>
 
 <p><a href="https://github.com/JetBrains/intellij-sdk-docs/tree/master/code_samples/editor_basics" data-bypass="yes" target="_blank"><span>源代码</span></a></p>
 
 <a name="section" class="elem-anchor"></a>
-<h2>3.1<a href="#section" class="anchor-link"><span></span></a></h2>
+<h2>3.1。<a href="#section" class="anchor-link"><span></span></a></h2>
 <p>在编辑器中处理击键</p>
 
 <p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/platform-api/src/com/intellij/openapi/editor/actionSystem/TypedActionHandler.java" data-bypass="yes" target="_blank"><span>TypedActionHandler</span></a></p>
 
-<p>interface用于实现在编辑器中键入的键的自定义处理.</p>
+<p>interface用于实现在编辑器中键入的键的自定义处理。</p>
 
-<p>下面的步骤显示了如何自定义编辑器的行为，并使其以不同的方式对键入作出反应，而不仅仅是在编辑器区域中显示键入的字符.</p>
+<p>下面的步骤显示了如何自定义编辑器的行为，并使其以不同的方式对键入作出反应，而不仅仅是在编辑器区域中显示键入的字符。</p>
 
 <a name="typedactionhandler-" class="elem-anchor"></a>
 <h3>3.1.2实现* TypedActionHandler *<a href="#typedactionhandler-" class="anchor-link"><span></span></a></h3>
@@ -121,13 +118,13 @@ var _hmt = _hmt || [];
 </code></div>
 
 <a name="section-1" class="elem-anchor"></a>
-<h3>3.1.3.<a href="#section-1" class="anchor-link"><span></span></a></h3>
+<h3>3.1.3。<a href="#section-1" class="anchor-link"><span></span></a></h3>
 <p>实现处理击键的逻辑</p>
 
 <p><code class="code highlight language-text">public void execute(@NotNull Editor editor，char c，@ NotNull DataContext dataContext);</code></p>
 
-<p>方法应包含处理击键的主要逻辑部分.
-每次按下一个键时都会调用它.</p>
+<p>方法应包含处理击键的主要逻辑部分。
+每次按下一个键时都会调用它。</p>
 
 <p>在下面的示例中，我们的类型处理程序在键击发生后在编辑器中的零偏移处插入一个字符串:</p>
 
@@ -148,7 +145,7 @@ var _hmt = _hmt || [];
 </code></div>
 
 <a name="section-2" class="elem-anchor"></a>
-<h3>3.1.4.<a href="#section-2" class="anchor-link"><span></span></a></h3>
+<h3>3.1.4。<a href="#section-2" class="anchor-link"><span></span></a></h3>
 <p>设置* TypedActionHandler *</p>
 
 <p>要在插件中启用* TypedActionHandler *的自定义实现，我们需要创建它的新实例并传递给</p>
@@ -157,8 +154,8 @@ var _hmt = _hmt || [];
 
 <p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/platform-api/src/com/intellij/openapi/editor/actionSystem/TypedAction.java" data-bypass="yes" target="_blank"><span>TypedAction</span></a></p>
 
-<p>类.
-通过这样做，我们用指定的处理程序替换打字处理程序.</p>
+<p>类。
+通过这样做，我们用指定的处理程序替换打字处理程序。</p>
 
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EditorIllustration</span> <span class="kd">extends</span> <span class="n">AnAction</span> <span class="o">{</span>
     <span class="kd">static</span> <span class="o">{</span>
@@ -169,30 +166,30 @@ var _hmt = _hmt || [];
 <span class="o">}</span>
 </code></div>
 
-<p>编译并运行上面的代码片段后，在编辑器中输入将在0位置插入一个额外的字符串.</p>
+<p>编译并运行上面的代码片段后，在编辑器中输入将在0位置插入一个额外的字符串。</p>
 
 <a name="section-3" class="elem-anchor"></a>
-<h2>3.2.<a href="#section-3" class="anchor-link"><span></span></a></h2>
+<h2>3.2。<a href="#section-3" class="anchor-link"><span></span></a></h2>
 <p>使用EditorActionHandler</p>
 
 <p>类</p>
 
 <p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/platform-api/src/com/intellij/openapi/editor/actionSystem/EditorActionHandler.java" data-bypass="yes" target="_blank"><span>EditorActionHandler.java</span></a></p>
 
-<p>用于编辑器中按键激活的操作.</p>
+<p>用于编辑器中按键激活的操作。</p>
 
-<p>以下步骤显示如何访问* EditorActionManager *并将其传递给要执行的操作.</p>
+<p>以下步骤显示如何访问* EditorActionManager *并将其传递给要执行的操作。</p>
 
-<p>在此示例中，我们将使用* EditorActionHandler *在当前插入符号下方插入一个额外的插入符号(如果适用).</p>
+<p>在此示例中，我们将使用* EditorActionHandler *在当前插入符号下方插入一个额外的插入符号(如果适用)。</p>
 
 <a name="section-4" class="elem-anchor"></a>
-<h3>3.2.1.<a href="#section-4" class="anchor-link"><span></span></a></h3>
+<h3>3.2.1。<a href="#section-4" class="anchor-link"><span></span></a></h3>
 <p>前要求</p>
 
 <p>创建一个动作:</p>
 
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EditorHandlerIllustration</span> <span class="kd">extends</span> <span class="n">AnAction</span> <span class="o">{</span>
-    <span class="nd">@Override</span>
+    <span class="nd">@Override</span>                                        
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">AnActionEvent</span> <span class="n">anActionEvent</span><span class="o">)</span> <span class="o">{</span>
     <span class="o">}</span>
     <span class="nd">@Override</span>
@@ -214,7 +211,7 @@ var _hmt = _hmt || [];
 </code></div>
 
 <a name="section-5" class="elem-anchor"></a>
-<h3>3.2.2.<a href="#section-5" class="anchor-link"><span></span></a></h3>
+<h3>3.2.2。<a href="#section-5" class="anchor-link"><span></span></a></h3>
 <p>设置可见性</p>
 
 <p>只有满足以下条件，我们才能看到我们的行动:</p>
@@ -235,7 +232,7 @@ var _hmt = _hmt || [];
 </code></div>
 
 <a name="section-6" class="elem-anchor"></a>
-<h3>3.2.3.<a href="#section-6" class="anchor-link"><span></span></a></h3>
+<h3>3.2.3。<a href="#section-6" class="anchor-link"><span></span></a></h3>
 <p>获取* EditorActionHandler *</p>
 
 <p>要自定义标准编辑器的操作，首先需要获取</p>
@@ -244,10 +241,10 @@ var _hmt = _hmt || [];
 
 <p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/platform-api/src/com/intellij/openapi/editor/actionSystem/EditorActionHandler.java" data-bypass="yes" target="_blank"><span>EditorActionHandler</span></a></p>
 
-<p>对于我们想要合作的行动.
+<p>对于我们想要合作的行动。
 在这种情况下，它是一个实例</p>
 
-<p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/platform-impl/src/com/intellij/openapi/editor/actions/CloneCaretActionHandler.java" data-bypass="yes" target="_blank"><span>CloneCaretActionHandler</span></a>.</p>
+<p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/platform-impl/src/com/intellij/openapi/editor/actions/CloneCaretActionHandler.java" data-bypass="yes" target="_blank"><span>CloneCaretActionHandler</span></a>。</p>
 
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EditorHandlerIllustration</span> <span class="kd">extends</span> <span class="n">AnAction</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -264,7 +261,7 @@ var _hmt = _hmt || [];
 </code></div>
 
 <a name="section-7" class="elem-anchor"></a>
-<h3>3.2.4.<a href="#section-7" class="anchor-link"><span></span></a></h3>
+<h3>3.2.4。<a href="#section-7" class="anchor-link"><span></span></a></h3>
 <p>使* EditorActionHandler *执行操作</p>
 
 <p>要执行一个动作，我们需要调用<code class="code highlight language-text">public final void execute(@NotNull Editor editor，@ Nullable final Caret contextCaret，final DataContext dataContext)</code></p>
@@ -286,7 +283,7 @@ var _hmt = _hmt || [];
 <span class="o">}</span>
 </code></div>
 
-<p>编译并运行以下代码示例后，将在当前活动的插入符号下面的编辑器中放置一个额外的插入符号.</p>
+<p>编译并运行以下代码示例后，将在当前活动的插入符号下面的编辑器中放置一个额外的插入符号。</p>
 
 <p><a href="https://github.com/JetBrains/intellij-sdk-docs/tree/master/code_samples/editor_basics" data-bypass="yes" target="_blank"><span>源代码</span></a></p>
 
@@ -294,7 +291,7 @@ var _hmt = _hmt || [];
 
                     <div class="navigation-links _bottom" data-swiftype-index="false">
                         <a class="navigation-links__prev" href="/tutorials/editor_basics/coordinates_system.html">2. Editor coordinates system. Positions and offsets</a>
-
+                        
                     </div>
                     <div class="last-modified">
                         Last modified: 8 May 2019

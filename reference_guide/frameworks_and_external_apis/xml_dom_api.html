@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//reference_guide/frameworks_and_external_apis/xml_dom_api.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//reference_guide/frameworks_and_external_apis/xml_dom_api.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="XML DOM API" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-11T20:37:03+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="XML DOM API" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="reference_guide/frameworks_and_external_apis/xml_dom_api">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,29 +70,32 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
         <section class="panel__content">
-            < class="container">
+            <div class="container">
                 <article class="article" data-shortcut-switcher="false">
                     <div class="navigation-links _top" data-swiftype-index="false">
                         <a class="navigation-links__prev" href="/basics/indexing_and_psi_stubs.html">Indexing and PSI Stubs</a>
                         <a class="navigation-links__next" href="/reference_guide/project_model/build_system.html">Build System</a>
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/reference_guide/frameworks_and_external_apis/xml_dom_api.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>XML DOM API</h1>
                     <!--  TODO内容:DOM <=> PSI,转到符号,编辑器装订图标 -->
 <p>DOM  –&gt;</p>
 
-<h2>摘要</h2>
+<p>##摘要</p>
 
 <p>This article is intended for plugin writers who create custom web server integrations, or some UI for easy XML editing. It describes the <em>Document Object Model</em> (DOM) in IntelliJ Platform — an easy way to work with DTD or Schema-based XML models.
 The following topics will be covered: working with DOM itself (reading/writing tags content, attributes, and subtags) and easy XML editing in the UI by connecting UI to DOM.</p>
 
-<p>假设读者熟悉Java 5,Swing,IntelliJ Platform XML PSI(类<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/xml/xml-psi-api/src/com/intellij/psi/xml/XmlTag" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">XmlTag</code></span></a>.
+<p>假设读者熟悉Java 5,Swing,IntelliJ Platform XML PSI(类<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/xml/xml-psi-api/src/com/intellij/psi/xml/XmlTag" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">XmlTag</code></span></a>. 
 java),<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/xml/xml-psi-api/src/com/intellij/psi/xml/XmlFile.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">XmlFile</code></span></a>,<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/xml/xml-psi-api/src/com/intellij/psi/xml/XmlTagValue.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">XmlTagValue</code></span></a>等),IntelliJ平台插件开发基础知识(应用程序和项目组件,文件编辑器).</p>
 
 <a name="section" class="elem-anchor"></a>
@@ -198,9 +195,9 @@ java),<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19
 稍后我们将讨论使用该模型的基本方法,以及更多高级功能.
 最后,我们将看到如何轻松地为DOM模型元素创建UI编辑器.</p>
 
-<h2>构建模型</h2>
+<p>##构建模型</p>
 
-<h3>标签内容</h3>
+<p>###标签内容</p>
 
 <p>在XML PSI中,标记内容被称为标记值,​​因此一致性也是如此.
 要读取和更改标记值,必须在界面中添加两个方法(getter和setter),如下所示:</p>
@@ -224,7 +221,7 @@ java),<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19
 但有时您可能希望使用整数,布尔值,枚举甚至类名(它们当然将表示为<code class="code highlight language-text">PsiClass</code>)和更通用的Java类型(<code class="code highlight language-text">PsiType</code>).
 在这种情况下,您只需将方法中的类型更改为您需要的类型,一切都将继续正常工作.</p>
 
-<h4>自定义值类型</h4>
+<p>####自定义值类型</p>
 
 <p>如果你使用更奇特的类型,你应该告诉DOM如何处理它们.
 首先,使用<code class="code highlight language-text">@ Convert</code>注释注释你的访问器方法,并指定你自己的类,它应该在注释中扩展<code class="code highlight language-text">Converter &lt;T&gt;</code>类.
@@ -246,9 +243,9 @@ java),<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19
     <span class="n">CmpVersion_2_X</span> <span class="o">(</span><span class="s">"2.x"</span><span class="o">);</span>
 
     <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">value</span><span class="o">;</span>
-
-    <span class="kd">private</span> <span class="nf">CmpVersion</span><span class="o">(</span><span class="n">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+    
+    <span class="kd">private</span> <span class="nf">CmpVersion</span><span class="o">(</span><span class="n">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span> 
     <span class="o">}</span>
 
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">value</span><span class="o">;</span> <span class="o">}</span>
@@ -273,11 +270,11 @@ java),<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19
 
 <p>So, you can just specify a particular <code class="code highlight language-text">T</code> when using this interface — and everything will work. Methods that work with <code class="code highlight language-text">String</code> are provided for many reasons. For example, your <code class="code highlight language-text">T</code> is <a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/java/java-psi-api/src/com/intellij/psi/PsiClass.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">PsiClass</code></span></a>. It would be useful to highlight invalid values in UI. To get the value to highlight (the string from the XML file) we have the <code class="code highlight language-text">getStringValue()</code> method. The error message will be taken from the converter via <code class="code highlight language-text">getErrorMessage()</code>.</p>
 
-<h3>属性</h3>
+<p>###属性</p>
 
 <p>属性也很容易处理.
 您可以阅读它们的值,设置它们,并使用不同的类型进行操作.
-所以很自然地创建类似<code class="code highlight language-text">GenericDomValue &lt;T&gt;</code>的东西,然后像往常一样工作.
+所以很自然地创建类似<code class="code highlight language-text">GenericDomValue &lt;T&gt;</code>的东西,然后像往常一样工作. 
 “类似的东西”将成为继承者,如下所示:</p>
 
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="kd">interface</span> <span class="nc">GenericAttributeValue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">GenericDomValue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
@@ -311,10 +308,10 @@ java),<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19
 
 <p>请注意,即使未在XML中指定属性,属性getter方法也永远不会返回<code class="code highlight language-text">null</code>.
 它的<code class="code highlight language-text">getValue()</code>,<code class="code highlight language-text">getStringValue()</code>和<code class="code highlight language-text">getXmlAttribute()</code>方法将返回<code class="code highlight language-text">null</code>,但DOM接口实例将存在且有效.
-如果元素具有底层属性,则可以很容易地修复(当然,只有在需要时):只需调用<code class="code highlight language-text">undefine()</code>方法(在<code class="code highlight language-text">DomElement</code>中定义),并且XML属性消失,而<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/xml/dom-openapi/src/com/intellij/util/xml/GenericAttributeValue.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">GenericAttributeValue
+如果元素具有底层属性,则可以很容易地修复(当然,只有在需要时):只需调用<code class="code highlight language-text">undefine()</code>方法(在<code class="code highlight language-text">DomElement</code>中定义),并且XML属性消失,而<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/xml/dom-openapi/src/com/intellij/util/xml/GenericAttributeValue.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">GenericAttributeValue 
 </code></span></a>仍然有效.</p>
 
-<h3>儿童:固定号码</h3>
+<p>###儿童:固定号码</p>
 
 <p>您可能经常在定义实体EJB的标签中处理具有至少一个具有给定名称的子标签的标签(例如,<code class="code highlight language-text">&lt;ejb-name&gt;</code>,<code class="code highlight language-text">&lt;ejb-class&gt;</code>或<code class="code highlight language-text">&lt;cmp-field&gt;</code>).
 与这些孩子一起工作,为他们提供吸气剂.
@@ -349,7 +346,7 @@ java),<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19
 
 <p>对于<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/xml/dom-openapi/src/com/intellij/util/xml/GenericDomValue.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">GenericDomValue</code></span></a>类型的子类,您也可以像属性一样指定转换器.</p>
 
-<h3>儿童:收藏</h3>
+<p>###儿童:收藏</p>
 
 <p>DTD和Schemas中的一个更常见的情况是,子项具有相同的标记名称和非固定的上限.
 它们的访问器与下面的固定数字子的访问器不同:返回结果是扩展“DomElement”的特殊类型的“Collection”或“List”,如果要使用名称策略,则方法名称必须为
@@ -404,10 +401,10 @@ List<FooBar> getMergedListOfFoosAndBars();</FooBar></bar></foo></p>
 @SubTagsList(value={“foo”,”bar”}, tagName=”bar”) Fubar addBar(int index);</p>
 <div class="code-block" data-lang="text"><code class="code-block__wrapper">The index parameter in the last example means the index in the merged collection, not in the collection of tags named "bar".
 
-    <h3>动态定义</h3>
+###动态定义
 
 您可以通过实现`com.intellij.util.xml.reflect.DomExtender &lt;T&gt;`在运行时扩展现有的DOM模型.
-在EP`com.intellij.dom.extender`的“extenderClass”属性中注册它,其中“domClass”指定要扩展的DOM类`&lt;T&gt;`.
+在EP`com.intellij.dom.extender`的“extenderClass”属性中注册它,其中“domClass”指定要扩展的DOM类`&lt;T&gt;`. 
 [`DomExtensionsRegistrar`](upsource:///xml/dom-openapi/src/com/intellij/util/xml/reflect/DomExtensionsRegistrar.java)提供了各种注册动态属性和子项的方法.
 
 
@@ -416,7 +413,7 @@ _13.1_
 如果贡献的元素依赖于纯XML文件内容以外的任何内容(使用框架版本,类路径中的库,...),请确保从`DomExtender#supportsStubs`返回`false`.
 
 
-<h3>从现有XSD生成DOM</h3>
+###从现有XSD生成DOM
 
 DOM可以从现有的XSD/DTD自动生成.
 输出正确性/完整性在很大程度上取决于输入方案,可能需要额外的手动调整.
@@ -434,9 +431,9 @@ DOM可以从现有的XSD/DTD自动生成.
 *根据您的需要修改生成的来源
 
 
-    <h3> IDE支持</h3>
+### IDE支持
 
-IntelliJ IDEA 13
+_IntelliJ IDEA 13_
 
 
 * [`DomElement`](upsource:///xml/dom-openapi/src/com/intellij/util/xml/DomElement.java):为继承类中定义的所有与DOM相关的方法提供隐式用法(以抑制“
@@ -446,10 +443,10 @@ IntelliJ IDEA 13
 “未使用的方法”警告)
 
 
-<h2>使用DOM</h2>
+##使用DOM
 
 
-<h3>班选择者</h3>
+###班选择者
 
 通常会发生一个集合包含同名的标记,这些标记可能具有不同的结构,甚至可能由DTD或Schema中的不同类型表示.
 例如,JSF Managed Beans可能有三种类型.
@@ -457,7 +454,7 @@ IntelliJ IDEA 13
 如果它包含一个`&lt;list-entries&gt;`子标签 - 你能猜到吗？
 对 - “ListEntriesBean”!
 否则它是一个`PropertyBean`(所有三个接口都扩展了`ManagedBean`).
-当我们编写`List &lt;ManagedBean&gt; getManagedBeans()`时,我们期望不仅得到一个列表,其中所有元素都是`ManagedBean`接口的实例,而是一个列表,其中每个元素都是某种类型,即`MapEntriesBean`
+当我们编写`List &lt;ManagedBean&gt; getManagedBeans()`时,我们期望不仅得到一个列表,其中所有元素都是`ManagedBean`接口的实例,而是一个列表,其中每个元素都是某种类型,即`MapEntriesBean` 
 ,`ListEntriesBean`或`PropertyBean`.
 
 
@@ -480,10 +477,10 @@ DOM元素将实现相同的接口,不会丢失任何模型数据.
 要使`TypeChooser`工作,请通过调用`registerTypeChooser()`在重写的`DomFileDescription.initializeFileDescription()`方法中注册它.
 
 
-    <h3>有用的DomElement和DomManager方法</h3>
+###有用的DomElement和DomManager方法
 
 
-    <h4> PSI连接</h4>
+#### PSI连接
 
 当然,DOM与XML PSI紧密相连,因此总有一种方法可以使用`getXmlTag()`方法获取`XmlTag`实例(对于固定数字的子节点和属性可以是`null`).
 我们记得在`GenericAttributeValue`中还有`getXmlAttribute()`方法.
@@ -497,9 +494,9 @@ DOM元素将实现相同的接口,不会丢失任何模型数据.
 如果元素是一个集合子元素,那么它和它的整个子树都不再有效.
 
 
-    <h4>树结构</h4>
+####树结构
 
-在每棵普通的树上,总有可能走路.
+在每棵普通的树上,总有可能走路. 
 `DomElement`也不例外.
 方法`getParent()`只返回树中元素的父级.
 
@@ -511,7 +508,7 @@ DOM元素将实现相同的接口,不会丢失任何模型数据.
 最后,`getRoot()`将返回`DomFileElement`,它是每个DOM树的根.
 
 
-<h4>有效性</h4>
+####有效性
 
 如果明确删除元素或由于外部PSI更改,则该元素将变为无效.
 固定数量的子项和属性旨在尽可能长时间保持有效,无论XML发生什么.
@@ -524,7 +521,7 @@ DOM元素将实现相同的接口,不会丢失任何模型数据.
 元素有效性非常重要,因为你无法在无效元素上调用任何方法(当然,除了`isValid()`本身).
 
 
-<h4> DOM反射</h4>
+#### DOM反射
 
 DOM也有一种反射,称为“通用信息”.
 可以使用它来直接访问标记名称,而不是调用getter方法.
@@ -533,7 +530,7 @@ DOM也有一种反射,称为“通用信息”.
 还有`DomElement.getXmlElementName()`方法,它返回相应标记或属性的名称.
 
 
-<h4>介绍</h4>
+#### 介绍
 
 &lt;!--  TODO:使用@Presentation  --&gt;
 
@@ -550,13 +547,13 @@ DOM也有一种反射,称为“通用信息”.
 `DomElement.getGenericInfo().getElementName()`.
 
 
-<h4>活动</h4>
+####活动
 
-如果您希望收到有关DOM模型中每个更改的通知,请将`DomEventListener`添加到`DomManager`.
+如果您希望收到有关DOM模型中每个更改的通知,请将`DomEventListener`添加到`DomManager`. 
 DOM支持以下事件:标记值已更改,元素已定义/未定义/已更改,以及已添加/删除的集合子项.
 
 
-<h4>突出显示注释</h4>
+####突出显示注释
 
 DOM支持错误检查和突出显示.
 它基于您在特殊位置添加到DOM元素的注释(不要将这些注释与Java 5的注释混淆 - 它们非常不同).
@@ -566,7 +563,7 @@ DOM支持错误检查和突出显示.
 您应该在`DomFileDescription`的相应虚拟方法中返回此注释器.
 
 
-<h4>自动突出显示(BasicDomElementsInspection)</h4>
+####自动突出显示(BasicDomElementsInspection)
 
 通过提供`BasicDomElementsInspection`的实例,可以自动突出显示以下错误:
 
@@ -585,7 +582,7 @@ DOM支持错误检查和突出显示.
 要禁止拼写检查,请使用`@ com.intellij.spellchecker.xml.NoSpellchecking`注释您的DomElement.
 
 
-    <h4>需要的孩子</h4>
+####需要的孩子
 
 当需要说一些必需的子标签或属性丢失时,错误突出显示有一个常见的情况.
 如果使用`@ Required`注释为该子项注释getter,DOM将自动为您执行此操作.
@@ -595,14 +592,14 @@ DOM支持错误检查和突出显示.
 
 
 
-<h3>解决</h3>
+###解决
 
 还记得接口`GenericDomValue &lt;T&gt;`及其子接口`GenericAttributeValue &lt;T&gt;`？
 请记住,任何类都可以作为`T`传递 - 例如,让我们将`GenericDomValue &lt;PsiClass&gt;`解释为对类的引用.
 然后我们总是可以将它视为对`T`类对象的引用!
 使用字符串或枚举,它不是一个非常有用的想法,但我们将以另一种方式使用它.
 通常,XML具有这样的结构:在某个地方声明对象,并在其他地方(更确切地说,在标记或属性值中)引用.
-因此,如果你想创建一个类似`GenericValue &lt;MyDomElement&gt; getMyDomElementReference()`的方法,那么你只需要指定一个适当的转换器,它将在你的`MyDomElement`模型中找到一个实例,其名称在`GenericDomValue中指定.
+因此,如果你想创建一个类似`GenericValue &lt;MyDomElement&gt; getMyDomElementReference()`的方法,那么你只需要指定一个适当的转换器,它将在你的`MyDomElement`模型中找到一个实例,其名称在`GenericDomValue中指定. 
 .
 
 
@@ -626,9 +623,9 @@ DOM支持错误检查和突出显示.
 另请参阅`GenericDomValueConvertersRegistry`,以管理可供选择的转换器的可扩展注册表.
 
 
-    <h3>模拟和稳定元素</h3>
+###模拟和稳定元素
 
-您的DOM元素不必绑定到物理文件.
+您的DOM元素不必绑定到物理文件. 
 `DomManager.createMockElement()`将帮助您使用给定模块创建给定类的虚拟元素.
 元素可以是物理的或不是物理的.
 这里的“物理”意味着DOM将为它创建一个模拟文档,因此如果您将此文档传递到文件编辑器中的正确位置,则可以享受撤消功能.
@@ -670,10 +667,10 @@ IntelliJ平台的XML解析器是增量的:文本中的更改不会导致整个�
 *`void revalidate()` - 调用工厂,如果返回新内容(即与当前包装元素不同),则使旧值无效并采用新值.
 
 
-    <h3>访客</h3>
+###访客
 
-访客是一种非常常见的设计模式.
-DOM模型也有一个访问者,它叫做'DomElementVisitor`.
+访客是一种非常常见的设计模式. 
+DOM模型也有一个访问者,它叫做'DomElementVisitor`. 
 `DomElement`接口有方法`accept()`和`acceptChildren()`,它将此访问者作为参数.
 如果你看一下接口`DomElementVisitor`本身,你可能会感到惊讶,因为它只有一个方法:`visitDomElement(DomElement)`.
 访客模式在哪里？
@@ -690,7 +687,7 @@ DOM模型也有一个访问者,它叫做'DomElementVisitor`.
     void visitFoo(Foo foo) {}
     void visitBar(Bar bar) {}
 }</p>
-<div class="code-block" data-lang="text"><code class="code-block__wrapper">实施
+<div class="code-block" data-lang="text"><code class="code-block__wrapper">###实施
 
 有时您可能希望使用一些与XML没有直接关联但与程序逻辑相关的功能来扩展模型.
 这个功能最合适的地方是DOM元素接口.
@@ -723,7 +720,7 @@ GenericDomValue<String> getName()</String></p>
 扩展点`com.intellij.dom.implementation`和DOM将在运行时生成不仅实现所需接口的类,还扩展抽象类.
 
 
-    <h3>跨多个文件的模型</h3>
+###跨多个文件的模型
 
 许多框架需要一组XML配置文件(“文件集”)作为一个模型工作,因此解析/导航适用于所有相关的DOM文件.
 
@@ -736,7 +733,7 @@ GenericDomValue<String> getName()</String></p>
 示例可以在Struts 2插件中找到(包`com.intellij.struts2.dom.struts.model`).
 
 
-    <h3> DOM Stubs</h3>
+### DOM Stubs
 
 _请谨慎使用它,仅用于DOM模型中访问量大的部分,因为它会增加磁盘空间使用/索引运行时间_
 
@@ -747,16 +744,17 @@ DOM元素可以存根,因此不需要(昂贵)访问XML/PSI(有关自定义语言
 每当您在DOM层次结构中更改`@Stubbed`注释用法时,都会从`DomFileDescription#hasStubs`返回`true`并增加`DomFileDescription#getStubVersion`,以在索引编制期间触发正确重建Stub.
 
 
-<h2>构建基于DOM的GUI</h2>
+##构建基于DOM的GUI
 
-<h3> 形式</h3>
+
+### 形式
 
 处理DOM的所有表单都以特殊方式组织.
 它们支持两个主要内容:从XML获取数据到UI,以及将UI数据保存到XML.
 前者称为重置,后者称为重置.
-有一个[`Committable`](upsource:///xml/dom-openapi/src/com/intellij/util/xml/ui/Committable.java)接口,它有相应的方法:`commit()`和`reset()
+有一个[`Committable`](upsource:///xml/dom-openapi/src/com/intellij/util/xml/ui/Committable.java)接口,它有相应的方法:`commit()`和`reset() 
 `.
-还有一种方法可以将表单结构化为更小的部分,即Composite模式:[`CompositeCommittable`](upsource:///xml/dom-openapi/src/com/intellij/util/xml/ui/CompositeCommittable.java)
+还有一种方法可以将表单结构化为更小的部分,即Composite模式:[`CompositeCommittable`](upsource:///xml/dom-openapi/src/com/intellij/util/xml/ui/CompositeCommittable.java) 
 .
 方法`commit()`和`reset()`在编辑器选项卡切换或撤消时自动调用.
 所以你只需要确保你所有的Swing结构都在一个`CompositeCommittable`树中组织起来,所有的辛苦工作都将由IDE来完成.
@@ -778,14 +776,14 @@ DOM控件是`Committable`的特殊后代.
 此方法将在与主`commit()`相同的写操作内调用,因此您在此方法中对XML执行的任何更改都将与撤消队列中的`commit()`合并.
 
 
-    <h3>简单控制</h3>
+###简单控制
 
 使用简单的控件,您可以编辑`GenericDomValue`:简单文本,类名,枚举和布尔值.
 这些控件将特殊对象作为构造函数参数.
 该对象应该实现`DomWrapper`接口,该接口知道如何设置/获取DOM模型的值.
 
 
-我们有三个主要的DomWrapper:[`DomFixedWrapper &lt;T&gt;`](upsource:///xml/dom-openapi/src/com/intellij/util/xml/ui/DomFixedWrapper.java)将调用重定向到[`GenericDomValue &lt;T
+我们有三个主要的DomWrapper:[`DomFixedWrapper &lt;T&gt;`](upsource:///xml/dom-openapi/src/com/intellij/util/xml/ui/DomFixedWrapper.java)将调用重定向到[`GenericDomValue &lt;T 
 &gt;`](upsource:///xml/dom-openapi/src/com/intellij/util/xml/GenericDomValue.java),[`DomStringWrapper`](upsource:///xml/dom-openapi/src/com /intellij/util/xml/ui/DomStringWrapper.java)将调用重定向到[`GenericDomValue`]的字符串访问器(upsource:///xml/dom-openapi/src/com/intellij/util/xml/GenericDomValue.java)
 和[`DomCollectionWrapper`](upsource:///xml/dom-openapi/src/com/intellij/util/xml/ui/DomCollectionWrapper.java)获取/设置给定[`GenericDomValue的第一个元素的值
 `](upsource:///xml/dom-openapi/src/com/intellij/util/xml/GenericDomValue.java)集合.
@@ -799,7 +797,7 @@ DOM控件是`Committable`的特殊后代.
 让我们更仔细地看一下简单的控件.
 
 
-    <h5> BooleanControl</h5>
+##### BooleanControl
 
 它允许您编辑布尔值.
 该控件绑定到`JCheckBox`.
@@ -808,7 +806,7 @@ DOM控件是`Committable`的特殊后代.
 ![BooleanControl](/xml_dom_api/booleancontrol.gif)
 
 
-    <h5> ComboControl</h5>
+##### ComboControl
 
 该控件绑定到一个不可编辑的`JComboBox`,因此它可用于从有限集中选择一些东西.
 这种有限集合的一个案例是枚举.
@@ -822,7 +820,7 @@ DOM控件是`Committable`的特殊后代.
 ![ComboControl](/xml_dom_api/combocontrol.gif)
 
 
-    <h5> BooleanEnumControl</h5>
+##### BooleanEnumControl
 
 有时,当只有两个选项时,使用复选框而不是组合框很方便.
 该控件专为此类情况而设计.
@@ -832,13 +830,13 @@ DOM控件是`Committable`的特殊后代.
 如果将参数设置为“true”,则状态将交换.
 
 
-    <h3>基于编辑器的控件</h3>
+###基于编辑器的控件
 
 请注意,基于编辑器的控件是基于IntelliJ Platform的`Editor`而不是标准的`JTextField`构建的.
 由于目前无法通过Open API直接实例化Editor,因此控件绑定到特殊的`JPanel`继承器,并且它们的`bind()`方法将必要的内容添加到这些面板.
 
 
-    <h5>TextControl</h5>
+##### TextControl
 
 此控件允许您编辑简单的字符串值.
 该控件绑定到`TextPanel`组件.
@@ -848,7 +846,7 @@ DOM控件是`Committable`的特殊后代.
 然后它将填充文本编辑器,并添加浏览按钮以打开一个大编辑器的对话框,您可以在其中键入更长的字符串.
 
 
-<h5>PsiClassControl</h5>
+##### PsiClassControl
 
 这是一个带有浏览按钮的单行编辑器,可以打开标准的类选择对话框.
 该控件仅接受类名.
@@ -858,13 +856,13 @@ DOM控件是`Committable`的特殊后代.
 ![PsiClassControl](/xml_dom_api/psiclasscontrol.gif)
 
 
-<h5>PsiTypeControl</h5>
+##### PsiTypeControl
 
 这与PsiClassControl几乎相同,但不仅允许输入类名,还允许输入Java基元类型甚至数组.
 它被绑定到'PsiTypePanel`.
 
 
-    <h3>收集控制</h3>
+###收集控制
 
 有一个特殊的表组件,其中每一行代表一个集合子代.
 它被称为`DomCollectionControl &lt;T&gt;`,其中`T`是你的集合元素类型.
@@ -875,8 +873,8 @@ DOM控件是`Committable`的特殊后代.
 什么是专栏信息？
 使用表模型只是一种更舒适的方式.
 它使用Java 5泛型并且更加面向对象.
-因此,它被命名为`ColumnInfo &lt;Item,Aspect&gt;`,其中`Item`是对应于集合中元素类型的类型变量,而`Aspect`是对应于此特定列信息类型的类型变量:`String`
-,'PsiClass`,`Boolean`等.列知道的基本内容是:列名,列类,读取值(Aspect`valueOf(Item)`),写入值(`setValue(Item item,Aspect aspect)
+因此,它被命名为`ColumnInfo &lt;Item,Aspect&gt;`,其中`Item`是对应于集合中元素类型的类型变量,而`Aspect`是对应于此特定列信息类型的类型变量:`String` 
+,'PsiClass`,`Boolean`等.列知道的基本内容是:列名,列类,读取值(Aspect`valueOf(Item)`),写入值(`setValue(Item item,Aspect aspect) 
 `),单元格渲染器(`getRenderer(Item)`),单元格“可编辑性”(`isCellEditable(Item)`),单元格编辑器(`getEditor(Item)`)等.
 
 
@@ -931,7 +929,7 @@ DOM控件是`Committable`的特殊后代.
 ![CollectionControl](/xml_dom_api/collectioncontrol.gif)
 
 
-    <h3> UI组织</h3>
+### UI组织
 
 创建基于DOM的UI表单的最简单方法是扩展[`BasicDomElementComponent`](upsource:///xml/dom-openapi/src/com/intellij/util/xml/ui/BasicDomElementComponent.java)类.
 这将要求您将一些DOM元素传递给构造函数.
@@ -969,20 +967,20 @@ DOM控件是`Committable`的特殊后代.
 </code></div>
 
 <p>通常,您必须创建自己的文件编辑器.
-然后,为了使用所有绑定和撤消功能,建议从<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/xml/dom-openapi/src/com/intellij/util/xml/ui/PerspectiveFileEditorProvider.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">继承你的[</code>FileEditorProvider<code class="code highlight language-text">](upsource:///platform/platform-api/src/com/intellij/openapi/fileEditor/FileEditorProvider.java).
-PerspectiveFileEditorProvider</code></span></a>,创建[<code class="code highlight language-text">DomFileEditor</code>]的实例(upsource:///xml/dom
+然后,为了使用所有绑定和撤消功能,建议从<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/xml/dom-openapi/src/com/intellij/util/xml/ui/PerspectiveFileEditorProvider.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">继承你的[</code>FileEditorProvider<code class="code highlight language-text">](upsource:///platform/platform-api/src/com/intellij/openapi/fileEditor/FileEditorProvider.java). 
+PerspectiveFileEditorProvider</code></span></a>,创建[<code class="code highlight language-text">DomFileEditor</code>]的实例(upsource:///xml/dom 
 -openapi/src/com/intellij/util/xml/ui/DomFileEditor.java)然后传递一个<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/xml/dom-openapi/src/com/intellij/util/xml" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">BasicDomElementComponent</code></span></a>/ui/BasicDomElementComponent.java).
-要轻松创建一个顶部带有标题的编辑器,就像我们的EJB和JSF一样,您可以使用静态方法<code class="code highlight language-text">DomFileEditor.createDomFileEditor()</code>.
+要轻松创建一个顶部带有标题的编辑器,就像我们的EJB和JSF一样,您可以使用静态方法<code class="code highlight language-text">DomFileEditor.createDomFileEditor()</code>. 
 <code class="code highlight language-text">DomFileEditor</code>自动监听与给定DOM元素对应的文档中的所有更改,因此在撤消时刷新组件.
 如果要监听其他文档中的更改,请在<code class="code highlight language-text">DomFileEditor</code>中使用<code class="code highlight language-text">addWatchedDocument()</code>,<code class="code highlight language-text">removeWatchedDocument()</code>,<code class="code highlight language-text">addWatchedElement()</code>,<code class="code highlight language-text">removeWatchedElement()</code>方法.</p>
 
-<h2>结论</h2>
+<p>##结论</p>
 
 <p>感谢您的时间和关注.
 我们希望您发现这篇文章非常有用.
 欢迎您将您的问题和意见发布到我们的[开放API和插件开发论坛]<a href="https://intellij-support.jetbrains.com/hc/en-us/community/topics/200366979-IntelliJ-IDEA-Open-API-and-Plugin-Development" data-bypass="yes" target="_blank"><span>Open API and Plugin Development Forum</span></a>.</p>
 
-<h3>更多材料</h3>
+<p>###更多材料</p>
 
 <p>以下捆绑的开源插件使(重)使用DOM:</p>
 
@@ -1013,12 +1011,12 @@ PerspectiveFileEditorProvider</code></span></a>,创建[<code class="code highlig
                     <div class="last-modified">
                         Last modified: 11 May 2019
                     </div>
+                </article>
 
-
-                    <section class="disqus">
-                        <div id="disqus_thread"></div>
-                    </section>
-                </article>>
+                <section class="disqus">
+                    <div id="disqus_thread"></div>
+                </section>
+            </div>
         </section>
     </main>
 </div>

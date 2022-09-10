@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//products/phpstorm/php_open_api.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//products/phpstorm/php_open_api.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="PHP Open API" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-09T23:57:17+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="PHP Open API" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="products/phpstorm/php_open_api">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -87,10 +81,13 @@ var _hmt = _hmt || [];
                         <a class="navigation-links__prev" href="/products/phpstorm/setting_up_environment.html">Setting-up the Environment for PhpStorm Plugin Development</a>
                         <a class="navigation-links__next" href="/products/phpstorm/existing_plugins.html">Example PhpStorm Third Party Plugins</a>
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/products/phpstorm/php_open_api.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>PHP Open API</h1>
-                    <p>使用php-openapi</p>
+                    <p>##使用php-openapi</p>
 
 <div class="code-block" data-lang="xml"><code class="code-block__wrapper"><span class="nt">&lt;depends&gt;</span>com.jetbrains.php<span class="nt">&lt;/depends&gt;</span>
 </code></div>
@@ -120,21 +117,21 @@ var _hmt = _hmt || [];
  * Extension point to implement to provide Type information on various PhpPsiElements
  */</span>
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">PhpTypeProvider2</span> <span class="o">{</span>
-
+ 
   <span class="n">ExtensionPointName</span><span class="o">&lt;</span><span class="n">PhpTypeProvider2</span><span class="o">&gt;</span> <span class="n">EP_NAME</span> <span class="o">=</span> <span class="n">ExtensionPointName</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">"com.intellij.php.typeProvider2"</span><span class="o">);</span>
-
+ 
   <span class="cm">/**
    * @return  Your custom signature key, i.e. "?". Do not use any of PhpTypeSignatureKey.XXX constants though!
    */</span>
   <span class="kt">char</span> <span class="nf">getKey</span><span class="o">();</span>
-
+ 
   <span class="cm">/**
    * @param element to deduce type for - using only LOCAL info. &lt;b&gt;THIS IS MOST CRUCIAL ASPECT TO FOLLOW&lt;/b&gt;
    * @return type for element, null if no insight. You can return a custom signature here to be later decoded by method below.
    */</span>
   <span class="nd">@Nullable</span>
   <span class="n">String</span> <span class="nf">getType</span><span class="o">(</span><span class="n">PsiElement</span> <span class="n">element</span><span class="o">);</span>
-
+ 
   <span class="cm">/**
    * @param expression Signature expression to decode. You can use PhpIndex.getBySignature() to look up expression internals.
    * @param project well so you can reach the PhpIndex
@@ -149,15 +146,15 @@ var _hmt = _hmt || [];
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="cm">/**
  */</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PhpStaticFactoryTypeProvider</span> <span class="kd">extends</span> <span class="n">CompletionContributor</span> <span class="kd">implements</span> <span class="n">PhpTypeProvider2</span> <span class="o">{</span>
-
+ 
   <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Key</span><span class="o">&lt;</span><span class="n">CachedValue</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;&gt;&gt;&gt;</span> <span class="n">STATIC_FACTORY_TYPE_MAP</span> <span class="o">=</span>
     <span class="k">new</span> <span class="n">Key</span><span class="o">&lt;</span><span class="n">CachedValue</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;&gt;&gt;&gt;(</span><span class="s">"STATIC_FACTORY_TYPE_MAP"</span><span class="o">);</span>
-
+ 
   <span class="nd">@Override</span>
   <span class="kd">public</span> <span class="kt">char</span> <span class="nf">getKey</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">return</span> <span class="sc">'S'</span><span class="o">;</span>
   <span class="o">}</span>
-
+ 
   <span class="nd">@Nullable</span>
   <span class="nd">@Override</span>
   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getType</span><span class="o">(</span><span class="n">PsiElement</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
@@ -177,7 +174,7 @@ var _hmt = _hmt || [];
     <span class="o">}</span>
     <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
   <span class="o">}</span>
-
+ 
   <span class="nd">@Override</span>
   <span class="kd">public</span> <span class="n">Collection</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">PhpNamedElement</span><span class="o">&gt;</span> <span class="nf">getBySignature</span><span class="o">(</span><span class="n">String</span> <span class="n">expression</span><span class="o">,</span> <span class="n">Project</span> <span class="n">project</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">methods</span> <span class="o">=</span> <span class="n">getStaticMethodTypesMap</span><span class="o">(</span><span class="n">project</span><span class="o">);</span>
@@ -190,7 +187,7 @@ var _hmt = _hmt || [];
     <span class="o">}</span>
     <span class="k">return</span> <span class="n">Collections</span><span class="o">.</span><span class="na">emptySet</span><span class="o">();</span>
   <span class="o">}</span>
-
+ 
   <span class="kd">synchronized</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;&gt;</span> <span class="nf">getStaticMethodTypesMap</span><span class="o">(</span><span class="kd">final</span> <span class="n">Project</span> <span class="n">project</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">CachedValue</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;&gt;&gt;</span> <span class="n">myStaticMethodTypesMap</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="na">getUserData</span><span class="o">(</span><span class="n">STATIC_FACTORY_TYPE_MAP</span><span class="o">);</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">myStaticMethodTypesMap</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
@@ -245,7 +242,7 @@ var _hmt = _hmt || [];
     <span class="o">}</span>
     <span class="k">return</span> <span class="n">myStaticMethodTypesMap</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
   <span class="o">}</span>
-
+ 
   <span class="kd">private</span> <span class="kd">static</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">Variable</span><span class="o">&gt;</span> <span class="nf">getVariables</span><span class="o">(</span><span class="n">Project</span> <span class="n">project</span><span class="o">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">PsiFile</span> <span class="n">file</span> <span class="o">=</span> <span class="n">getMetaFile</span><span class="o">(</span><span class="n">project</span><span class="o">);</span>
     <span class="kd">final</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">Variable</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SmartList</span><span class="o">&lt;</span><span class="n">Variable</span><span class="o">&gt;();</span>
@@ -266,12 +263,12 @@ var _hmt = _hmt || [];
     <span class="o">}</span>
     <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
   <span class="o">}</span>
-
+ 
   <span class="kd">public</span> <span class="kd">static</span> <span class="n">PsiFile</span> <span class="nf">getMetaFile</span><span class="o">(</span><span class="n">Project</span> <span class="n">project</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">VirtualFile</span> <span class="n">metaFile</span> <span class="o">=</span> <span class="n">LocalFileSystem</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">findFileByPath</span><span class="o">(</span><span class="n">project</span><span class="o">.</span><span class="na">getBasePath</span><span class="o">()</span> <span class="o">+</span> <span class="n">File</span><span class="o">.</span><span class="na">separatorChar</span> <span class="o">+</span> <span class="s">".phpstorm.meta.php"</span><span class="o">);</span>
     <span class="k">return</span> <span class="n">metaFile</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">PsiManager</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">project</span><span class="o">).</span><span class="na">findFile</span><span class="o">(</span><span class="n">metaFile</span><span class="o">)</span> <span class="o">:</span> <span class="kc">null</span><span class="o">;</span>
   <span class="o">}</span>
-
+ 
   <span class="nd">@Override</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fillCompletionVariants</span><span class="o">(</span><span class="n">CompletionParameters</span> <span class="n">parameters</span><span class="o">,</span> <span class="n">CompletionResultSet</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">final</span> <span class="n">ProcessingContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProcessingContext</span><span class="o">();</span>
@@ -281,7 +278,7 @@ var _hmt = _hmt || [];
           <span class="o">.</span><span class="na">accepts</span><span class="o">(</span><span class="n">position</span><span class="o">,</span> <span class="n">context</span><span class="o">))</span> <span class="o">{</span>
       <span class="n">ParameterListOwner</span> <span class="n">parameterListOwner</span> <span class="o">=</span> <span class="n">PsiTreeUtil</span><span class="o">.</span><span class="na">getStubOrPsiParentOfType</span><span class="o">(</span><span class="n">position</span><span class="o">,</span> <span class="n">ParameterListOwner</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
       <span class="k">if</span> <span class="o">(</span><span class="n">parameterListOwner</span> <span class="k">instanceof</span> <span class="n">MethodReference</span> <span class="o">&amp;&amp;</span> <span class="o">((</span><span class="n">MethodReference</span><span class="o">)</span><span class="n">parameterListOwner</span><span class="o">).</span><span class="na">isStatic</span><span class="o">())</span> <span class="o">{</span>
-
+ 
         <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">getStaticMethodTypesMap</span><span class="o">(</span><span class="n">position</span><span class="o">.</span><span class="na">getProject</span><span class="o">()).</span><span class="na">get</span><span class="o">(((</span><span class="n">MethodReference</span><span class="o">)</span><span class="n">parameterListOwner</span><span class="o">).</span><span class="na">getSignature</span><span class="o">());</span>
         <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">s</span> <span class="o">:</span> <span class="n">map</span><span class="o">.</span><span class="na">keySet</span><span class="o">())</span> <span class="o">{</span>
           <span class="n">result</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="n">LookupElementBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">s</span><span class="o">).</span><span class="na">appendTailText</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">s</span><span class="o">),</span> <span class="kc">true</span><span class="o">));</span>
@@ -305,7 +302,7 @@ var _hmt = _hmt || [];
                         <a class="navigation-links__next" href="/products/phpstorm/existing_plugins.html">Example PhpStorm Third Party Plugins</a>
                     </div>
                     <div class="last-modified">
-                        Last modified: 28 August 2019
+                        Last modified: 9 May 2019
                     </div>
                 </article>
 

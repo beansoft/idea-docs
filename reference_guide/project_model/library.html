@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//reference_guide/project_model/library.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//reference_guide/project_model/library.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="Library" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-09T23:57:17+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="Library" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="reference_guide/project_model/library">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -87,7 +81,10 @@ var _hmt = _hmt || [];
                         <a class="navigation-links__prev" href="/reference_guide/project_model/sdk.html">SDK</a>
                         <a class="navigation-links__next" href="/reference_guide/project_model/facet.html">Facet</a>
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/reference_guide/project_model/library.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>Library</h1>
                     <p>库是模块所依赖的已编译代码(例如JAR文件)的存档.</p>
@@ -111,7 +108,7 @@ var _hmt = _hmt || [];
 
 <p><a href="https://www.jetbrains.com/help/idea/working-with-libraries.html" data-bypass="yes" target="_blank"><span>Library</span></a>.</p>
 
-<h2>访问库和罐子</h2>
+<p>##访问库和罐子</p>
 
 <p>包</p>
 
@@ -119,7 +116,7 @@ var _hmt = _hmt || [];
 
 <p>提供使用项目库和jar的功能.</p>
 
-<h3>如何获取模块所依赖的库列表？</h3>
+<p>###如何获取模块所依赖的库列表？</p>
 
 <p>要获取模块所依赖的库列表,请使用“OrderEnumerator.forEachLibrary”方法.</p>
 
@@ -135,7 +132,7 @@ var _hmt = _hmt || [];
 
 <p>此示例代码输出<code class="code highlight language-text">module</code>模块所依赖的库列表.</p>
 
-<h3>如何获取所有库的列表？</h3>
+<p>###如何获取所有库的列表？</p>
 
 <p>要管理应用程序和项目库的列表,<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/projectModel-api/src/com/intellij/openapi/roots/libraries/LibraryTable.java" data-bypass="yes" target="_blank"><span>LibraryTable</span></a></p>
 
@@ -150,7 +147,7 @@ var _hmt = _hmt || [];
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="n">OrderEntryUtil</span><span class="o">.</span><span class="na">getModuleLibraries</span><span class="o">(</span><span class="n">ModuleRootManager</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">module</span><span class="o">));</span>
 </code></div>
 
-<h3>如何获取图书馆内容？</h3>
+<p>###如何获取图书馆内容？</p>
 
 <p><code class="code highlight language-text">Library</code>类提供了<code class="code highlight language-text">getUrls</code>方法,您可以使用它来获取库包含的源根和类的列表.
 为了澄清,请考虑以下代码段:</p>
@@ -169,7 +166,7 @@ var _hmt = _hmt || [];
 
 <p>在此示例代码中,<code class="code highlight language-text">lib</code>是<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/projectModel-api/src/com/intellij/openapi/roots/libraries/Library.java" data-bypass="yes" target="_blank"><span>Library</span></a>类型.</p>
 
-<h3>如何创建库？</h3>
+<p>###如何创建库？</p>
 
 <p>要创建库,您需要执行以下步骤:</p>
 
@@ -197,7 +194,7 @@ var _hmt = _hmt || [];
 您可以在[示例插件]中找到使用这些API的示例(https://github.com/JetBrains/intellij-sdk-docs/blob/master/code_samples/project_model/src/com/intellij/tutorials/project/
 模型/ModificationAction.java).</p>
 
-<h3>如何将内容添加到库或修改它？</h3>
+<p>###如何将内容添加到库或修改它？</p>
 
 <p>要添加或更改库的根,您需要执行以下步骤:</p>
 
@@ -210,11 +207,11 @@ var _hmt = _hmt || [];
 *使用<code class="code highlight language-text">Library.ModifiableModel.commit()</code>提交模型.
   </p>
 
-<h3>如何向模块添加库依赖项？</h3>
+<p>###如何向模块添加库依赖项？</p>
 
 <p>在写入操作下使用<code class="code highlight language-text">ModuleRootModificationUtil.addDependency(module,library)</code>.</p>
 
-<h3>检查属于图书馆</h3>
+<p>###检查属于图书馆</p>
 
 <p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/projectModel-api/src/com/intellij/openapi/roots/ProjectFileIndex.java" data-bypass="yes" target="_blank"><span>ProjectFileIndex</span></a>接口实现了许多方法,可用于检查指定的文件是否属于项目库
 课程或图书馆资源.</p>
@@ -255,7 +252,7 @@ var _hmt = _hmt || [];
                         <a class="navigation-links__next" href="/reference_guide/project_model/facet.html">Facet</a>
                     </div>
                     <div class="last-modified">
-                        Last modified: 28 August 2019
+                        Last modified: 9 May 2019
                     </div>
                 </article>
 

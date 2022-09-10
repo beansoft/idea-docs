@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//welcome.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//welcome.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="IntelliJ Platform SDK" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
-    <meta property="article:modified_time" content="2019-05-11T19:40:58+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="article:modified_time" content="2022-09-10T18:46:19+08:00" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="IntelliJ Platform SDK" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="welcome">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -84,18 +78,20 @@ var _hmt = _hmt || [];
             <div class="container">
                 <article class="article" data-shortcut-switcher="false">
                     <div class="navigation-links _top" data-swiftype-index="false">
-
-                        <a class="navigation-links__next" href="/intro/intellij_platform.html">What is the IntelliJ Platform?</a>
+                        
+                        <a class="navigation-links__next" href="/intro/intellij_platform.html">IntelliJ Platform 是什么?</a>
                     </div>
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/welcome.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
+                    <h1>IntelliJ Platform SDK</h1>
+                    <p><a href="https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub" data-bypass="yes" target="_blank"><span><img src="https://jb.gg/badges/official-flat-square.svg" alt="官方JetBrains项目" /></span></a>
+<a href="https://plugins.jetbrains.com/slack" data-bypass="yes" target="_blank"><span><img src="https://img.shields.io/badge/Slack-%23intellij--platform-blue?style=flat-square&amp;logo=slack" alt="加入聊天 Slack" /></span></a></p>
 
-                    <h1>IntelliJ Platform SDK 中文</h1>
-                    <p><a href="https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub" data-bypass="yes" target="_blank"><span><img src="https://jb.gg/badges/official-flat-square.svg" alt="官方JetBrains项目" /></span></a></p>
-
-<p><a href="https://gitter.im/IntelliJ-Plugin-Developers/Lobby" data-bypass="yes" target="_blank"><span><img src="https://badges.gitter.im/JetBrains/intellij-sdk-docs.svg" alt="加入聊天https://gitter.im/JetBrains/gradle-intellij-plugin" /></span></a></p>
-
-<p>欢迎使用IntelliJ Platform SDK.
-这是扩展IntelliJ Platform的文档的主要来源,通过创建插件,自定义语言支持或构建自定义IDE.</p>
+<p>欢迎使用_IntelliJ Platform_ SDK.
+这是扩展_IntelliJ Platform_的文档的主要来源,通过创建插件,自定义语言支持或构建自定义IDE.</p>
 
 <a name="section" class="elem-anchor"></a>
 <h2>入门<a href="#section" class="anchor-link"><span></span></a></h2>
@@ -118,7 +114,84 @@ var _hmt = _hmt || [];
   <li><a href="/intellij-sdk-docs-cn/appendix/resources/useful_links.html"><span><strong>有用的链接</strong></span></a></li>
 </ul>
 
-<p>开源</p>
+<a name="getting-started" class="elem-anchor"></a>
+<h2>Getting Started<a href="#getting-started" class="anchor-link"><span></span></a></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>SDK Docs Trail</th>
+      <th>Webinar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="intro/intellij_platform.html"><span><strong>什么是IntelliJ平台?</strong></span></a></td>
+      <td>Watch <a href="https://www.youtube.com/watch?v=-6D5-xEaYig" data-bypass="yes" target="_blank"><span>Busy Plugin Developers #0</span></a> to get started with developing plugins and publishing on <a href="https://plugins.jetbrains.com" data-bypass="yes" target="_blank"><span>JetBrains Marketplace</span></a>.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+<tr>
+<th>
+SDK Docs Trail
+</th>
+<th>
+Webinar
+</th>
+</tr>
+<tr>
+<td>
+
+
+* [](about.md)
+* [](plugin_alternatives.md)
+* [](getting_started.md)
+* [](explore_api.md)
+* [](useful_links.md)
+* [](learning_resources.md)
+
+</td>
+
+<td width="50%">
+
+Watch [Busy Plugin Developers #0](https://www.youtube.com/watch?v=-6D5-xEaYig) to get started with developing plugins and publishing on [JetBrains Marketplace](https://plugins.jetbrains.com).
+<br />
+<br />
+
+<video href="-6D5-xEaYig" title="Busy Plugin Developers #0" width="300" />
+
+</td>
+</tr>
+</table>
+
+<a name="section-1" class="elem-anchor"></a>
+<h2>开源<a href="#section-1" class="anchor-link"><span></span></a></h2>
 
 <p>本指南是开源的,并在Apache 2.0下获得许可.
 源(作为Markdown)<a href="https://github.com/JetBrains/intellij-sdk-docs" data-bypass="yes" target="_blank"><span>托管在GitHub上</span></a>.</p>
@@ -127,8 +200,8 @@ var _hmt = _hmt || [];
 
 <p>如果您在本指南中遇到错误或需要有关缺少内容的帮助,请参阅<a href="/intellij-sdk-docs-cn/intro/getting_help.html"><span>获得帮助</span></a>.</p>
 
-<a name="section-1" class="elem-anchor"></a>
-<h2>更新<a href="#section-1" class="anchor-link"><span></span></a></h2>
+<a name="section-2" class="elem-anchor"></a>
+<h2>更新<a href="#section-2" class="anchor-link"><span></span></a></h2>
 
 <p>有关最新更改,请参阅<a href="recent_updated.html"><span>最近更新</span></a>.
 在Twitter上关注<a href="https://twitter.com/JBPlatform/" data-bypass="yes" target="_blank"><span>JBPlatform</span></a>,访问<a href="https://blog.jetbrains.com/platform/" data-bypass="yes" target="_blank"><span>JetBrains平台博客</span></a>获取最新公告.</p>
@@ -136,11 +209,11 @@ var _hmt = _hmt || [];
 
 
                     <div class="navigation-links _bottom" data-swiftype-index="false">
-
-                        <a class="navigation-links__next" href="/intro/intellij_platform.html">What is the IntelliJ Platform?</a>
+                        
+                        <a class="navigation-links__next" href="/intro/intellij_platform.html">IntelliJ Platform 是什么?</a>
                     </div>
                     <div class="last-modified">
-                        Last modified: 11 May 2019
+                        Last modified: 10 September 2022
                     </div>
                 </article>
 

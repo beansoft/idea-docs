@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//tutorials/custom_language_support/reference_contributor.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//tutorials/custom_language_support/reference_contributor.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="10. Reference Contributor" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-11T20:37:03+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="10. Reference Contributor" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="tutorials/custom_language_support/reference_contributor">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -87,17 +81,20 @@ var _hmt = _hmt || [];
                         <a class="navigation-links__prev" href="/tutorials/custom_language_support/completion_contributor.html">9. Completion Contributor</a>
                         <a class="navigation-links__next" href="/tutorials/custom_language_support/find_usages_provider.html">11. Find Usages Provider</a>
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/tutorials/custom_language_support/reference_contributor.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>10. Reference Contributor</h1>
-                    <p>引用是实现自定义语言支持中最重要和最棘手的部分之一.</p>
+                    <p>引用是实现自定义语言支持中最重要和最棘手的部分之一。</p>
 
-<p>解析引用意味着能够从元素的使用转变为声明，完成，重命名重构，查找用法等.</p>
+<p>解析引用意味着能够从元素的使用转变为声明，完成，重命名重构，查找用法等。</p>
 
-<p><strong>每个可以重命名或引用的元素都需要实现<code class="code highlight language-text">com.intellij.psi.PsiNamedElement</code>接口.</strong></p>
+<p><strong>每个可以重命名或引用的元素都需要实现<code class="code highlight language-text">com.intellij.psi.PsiNamedElement</code>接口。</strong></p>
 
 <a name="section" class="elem-anchor"></a>
-<h3>10.1.<a href="#section" class="anchor-link"><span></span></a></h3>
+<h3>10.1。<a href="#section" class="anchor-link"><span></span></a></h3>
 <p>定义一个名为element的基类</p>
 
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">simpleplugin</span><span class="o">.</span><span class="na">psi</span><span class="o">;</span>
@@ -123,7 +120,7 @@ var _hmt = _hmt || [];
 </code></div>
 
 <a name="section-1" class="elem-anchor"></a>
-<h3>10.2.<a href="#section-1" class="anchor-link"><span></span></a></h3>
+<h3>10.2。<a href="#section-1" class="anchor-link"><span></span></a></h3>
 <p>为生成的PSI元素定义辅助方法</p>
 
 <p>由于我们需要在PSI类中实现新方法，我们应该在<code class="code highlight language-text">SimplePsiImplUtil</code>类中定义它们:</p>
@@ -160,11 +157,11 @@ var _hmt = _hmt || [];
 <span class="o">}</span>
 </code></div>
 
-<p>请注意，<code class="code highlight language-text">SimpleElementFactory</code>类将显示为错误.
-我们接下来会创建它.</p>
+<p>请注意，<code class="code highlight language-text">SimpleElementFactory</code>类将显示为错误。
+我们接下来会创建它。</p>
 
 <a name="section-2" class="elem-anchor"></a>
-<h3>10.3.<a href="#section-2" class="anchor-link"><span></span></a></h3>
+<h3>10.3。<a href="#section-2" class="anchor-link"><span></span></a></h3>
 <p>定义元素工厂</p>
 
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">simpleplugin</span><span class="o">.</span><span class="na">psi</span><span class="o">;</span>
@@ -188,23 +185,23 @@ var _hmt = _hmt || [];
 </code></div>
 
 <a name="section-3" class="elem-anchor"></a>
-<h3>10.4.<a href="#section-3" class="anchor-link"><span></span></a></h3>
+<h3>10.4。<a href="#section-3" class="anchor-link"><span></span></a></h3>
 <p>更新语法并重新生成解析器</p>
 
-<p>现在我们需要对语法文件进行相应的更改并重新生成解析器和PSI类.</p>
+<p>现在我们需要对语法文件进行相应的更改并重新生成解析器和PSI类。</p>
 
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="n">property</span> <span class="o">::=</span> <span class="o">(</span><span class="n">KEY</span><span class="o">?</span> <span class="n">SEPARATOR</span> <span class="n">VALUE</span><span class="o">?)</span> <span class="o">|</span> <span class="n">KEY</span> <span class="o">{</span><span class="n">mixin</span><span class="o">=</span><span class="s">"com.simpleplugin.psi.impl.SimpleNamedElementImpl"</span>
   <span class="kd">implements</span><span class="o">=</span><span class="s">"com.simpleplugin.psi.SimpleNamedElement"</span> <span class="n">methods</span><span class="o">=[</span><span class="n">getKey</span> <span class="n">getValue</span> <span class="n">getName</span> <span class="n">setName</span> <span class="n">getNameIdentifier</span><span class="o">]}</span>
 </code></div>
 
 <p>不要忘记重新生成解析器!
-右键单击<code class="code highlight language-text">Simple.bnf</code>文件并选择_Generate Parser Code_.</p>
+右键单击<code class="code highlight language-text">Simple.bnf</code>文件并选择_Generate Parser Code_。</p>
 
 <a name="section-4" class="elem-anchor"></a>
-<h3>10.5.<a href="#section-4" class="anchor-link"><span></span></a></h3>
+<h3>10.5。<a href="#section-4" class="anchor-link"><span></span></a></h3>
 <p>定义参考</p>
 
-<p>现在我们需要定义一个引用类来解析它的用法属性.</p>
+<p>现在我们需要定义一个引用类来解析它的用法属性。</p>
 
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">simpleplugin</span><span class="o">;</span>
 
@@ -265,12 +262,12 @@ var _hmt = _hmt || [];
 </code></div>
 
 <a name="section-5" class="elem-anchor"></a>
-<h3>10.6.<a href="#section-5" class="anchor-link"><span></span></a></h3>
+<h3>10.6。<a href="#section-5" class="anchor-link"><span></span></a></h3>
 <p>定义参考贡献者</p>
 
-<p>引用参与者允许您提供从其他语言(如Java)中的元素到您所用语言中的元素的引用.</p>
+<p>引用参与者允许您提供从其他语言(如Java)中的元素到您所用语言中的元素的引用。</p>
 
-<p>让我们为每个属性的使用贡献一个参考.</p>
+<p>让我们为每个属性的使用贡献一个参考。</p>
 
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">simpleplugin</span><span class="o">;</span>
 
@@ -306,29 +303,29 @@ var _hmt = _hmt || [];
 </code></div>
 
 <a name="section-6" class="elem-anchor"></a>
-<h3>10.7.<a href="#section-6" class="anchor-link"><span></span></a></h3>
+<h3>10.7。<a href="#section-6" class="anchor-link"><span></span></a></h3>
 <p>注册参考贡献者</p>
 
 <div class="code-block" data-lang="xml"><code class="code-block__wrapper"><span class="nt">&lt;psi.referenceContributor</span> <span class="na">implementation=</span><span class="s">"com.simpleplugin.SimpleReferenceContributor"</span><span class="nt">/&gt;</span>
 </code></div>
 
 <a name="section-7" class="elem-anchor"></a>
-<h3>10.8.<a href="#section-7" class="anchor-link"><span></span></a></h3>
+<h3>10.8。<a href="#section-7" class="anchor-link"><span></span></a></h3>
 <p>运行该项目</p>
 
-<p>如您所见，IDE现在解析了该属性并提供了完成功能.</p>
+<p>如您所见，IDE现在解析了该属性并提供了完成功能。</p>
 
 <p><img src="img/reference_contributor.png" alt="参考贡献者" /></p>
 
-<p><em>根据定义和用法重命名</em>重构.</p>
+<p><em>根据定义和用法重命名</em>重构。</p>
 
 <p><img src="IMG/rename.png" alt="重命名" /></p>
 
 <a name="section-8" class="elem-anchor"></a>
-<h3>10.9.<a href="#section-8" class="anchor-link"><span></span></a></h3>
+<h3>10.9。<a href="#section-8" class="anchor-link"><span></span></a></h3>
 <p>定义重构支持提供程序</p>
 
-<p>为了允许就地重构，我们应该在重构支持提供程序中明确指定它.</p>
+<p>为了允许就地重构，我们应该在重构支持提供程序中明确指定它。</p>
 
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">simpleplugin</span><span class="o">;</span>
 
@@ -345,14 +342,14 @@ var _hmt = _hmt || [];
 </code></div>
 
 <a name="section-9" class="elem-anchor"></a>
-<h3>10.10.<a href="#section-9" class="anchor-link"><span></span></a></h3>
+<h3>10.10。<a href="#section-9" class="anchor-link"><span></span></a></h3>
 <p>注册重构支持提供程序</p>
 
 <div class="code-block" data-lang="xml"><code class="code-block__wrapper"><span class="nt">&lt;lang.refactoringSupport</span> <span class="na">language=</span><span class="s">"Simple"</span> <span class="na">implementationClass=</span><span class="s">"com.simpleplugin.SimpleRefactoringSupportProvider"</span><span class="nt">/&gt;</span>
 </code></div>
 
 <a name="section-10" class="elem-anchor"></a>
-<h3>10.11.<a href="#section-10" class="anchor-link"><span></span></a></h3>
+<h3>10.11。<a href="#section-10" class="anchor-link"><span></span></a></h3>
 <p>运行该项目</p>
 
 <p><img src="img/in_place_rename.png" alt="原位重命名" /></p>

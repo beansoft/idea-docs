@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//plugin_repository/feature_extractor.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//plugin_repository/feature_extractor.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="Plugin Recommendations" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-11T20:37:03+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="Plugin Recommendations" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="plugin_repository/feature_extractor">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -87,7 +81,10 @@ var _hmt = _hmt || [];
                         <a class="navigation-links__prev" href="/plugin_repository/api/api_reference.html">Plugin Repository API Reference</a>
                         <a class="navigation-links__next" href="/plugin_repository/custom_channels.html">Custom Release Channels</a>
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/plugin_repository/feature_extractor.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>Plugin Recommendations</h1>
                     <p>IntelliJ平台IDE将推荐一个插件,以便在以下某种情况下进行安装:</p>
@@ -102,7 +99,7 @@ var _hmt = _hmt || [];
 使用插件配置的设置(模块,构面,工件或运行配置).</li>
 </ul>
 
-<p>IntelliJ Platform IDE仅在适当的上下文中显示插件推荐,因此它们对用户有意义.</p>
+<p>IntelliJ Platform IDE仅在适当的上下文中显示插件建议,因此它们对用户有意义.</p>
 
 <p><a href="https://github.com/JetBrains/intellij-plugin-verifier/tree/master/intellij-feature-extractor/" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">feature extractor</code></span></a>工具</p>
 
@@ -125,7 +122,7 @@ var _hmt = _hmt || [];
 
 <p>你应该扩展<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/platform-api/src/com/intellij/openapi/fileTypes/FileTypeFactory.java" data-bypass="yes" target="_blank"><span>FileTypeFactory</span></a></p>
 
-<p>并在<code class="code highlight language-text">createFileTypes(FileTypeConsumer)</code>中提供支持的文件扩展名.
+<p>并在<code class="code highlight language-text">createFileTypes(FileTypeConsumer)</code>中提供支持的文件扩展名. 
 <code class="code highlight language-text">FileTypeConsumer</code>的值由<code class="code highlight language-text">feature extractor</code>分析.</p>
 
 <p>建议安装支持_ \ * .d_扩展类型的插件:</p>
@@ -141,7 +138,7 @@ var _hmt = _hmt || [];
 
 <p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/lang-api/src/com/intellij/execution/configurations/ConfigurationType.java" data-bypass="yes" target="_blank"><span>ConfigurationType</span></a></p>
 
-<p>并实现<code class="code highlight language-text">getId()</code>方法.
+<p>并实现<code class="code highlight language-text">getId()</code>方法. 
 <code class="code highlight language-text">feature extractor</code>分析<code class="code highlight language-text">getId()</code>的值.</p>
 
 <p>建议安装支持* Run D App *配置类型的插件:</p>
@@ -155,7 +152,7 @@ var _hmt = _hmt || [];
 
 <p>要支持Facet Type功能,您应该扩展<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/lang-api/src/com/intellij/facet/FacetType.java" data-bypass="yes" target="_blank"><span>FacetType</span></a>,</p>
 
-<p>并将<code class="code highlight language-text">stringId</code>传递给它的构造函数.
+<p>并将<code class="code highlight language-text">stringId</code>传递给它的构造函数. 
 <code class="code highlight language-text">stringId</code>参数的值将由`feature extractor’分析.</p>
 
 <p>安装支持* jangaroo * Facet类型的插件的通知:</p>
@@ -171,7 +168,7 @@ var _hmt = _hmt || [];
 
 <p><a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/lang-api/src/com/intellij/openapi/module/ModuleType.java" data-bypass="yes" target="_blank"><span>ModuleType</span></a></p>
 
-<p>并将Module Type的<code class="code highlight language-text">id</code>参数传递给它的构造函数.
+<p>并将Module Type的<code class="code highlight language-text">id</code>参数传递给它的构造函数. 
 <code class="code highlight language-text">feature extractor</code>将评估<code class="code highlight language-text">id</code>的值.</p>
 
 <p>参见<a href="/intellij-sdk-docs-cn/reference_guide/project_model/module.html"><span>Module</span></a>和<a href="/intellij-sdk-docs-cn/tutorials/project_wizard/module_types.html"><span>Supporting Module Types</span></a></p>
@@ -183,7 +180,7 @@ var _hmt = _hmt || [];
 
 <p>要支持特定的工件类型,请扩展<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/java/compiler/openapi/src/com/intellij/packaging/artifacts/ArtifactType.java" data-bypass="yes" target="_blank"><span>ArtifactType</span></a>,</p>
 
-<p>并将<code class="code highlight language-text">id</code>参数传递给它的构造函数.
+<p>并将<code class="code highlight language-text">id</code>参数传递给它的构造函数. 
 <code class="code highlight language-text">id</code>参数的值由`feature extractor’分析.</p>
 
 <p>启用支持* dm.bundle *插件类型的插件的示例建议:</p>

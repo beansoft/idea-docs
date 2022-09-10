@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//tutorials/custom_language_support/line_marker_provider.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//tutorials/custom_language_support/line_marker_provider.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="8. Line Marker Provider" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-11T20:37:03+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="8. Line Marker Provider" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="tutorials/custom_language_support/line_marker_provider">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -87,18 +81,21 @@ var _hmt = _hmt || [];
                         <a class="navigation-links__prev" href="/tutorials/custom_language_support/annotator.html">7. Annotator</a>
                         <a class="navigation-links__next" href="/tutorials/custom_language_support/completion_contributor.html">9. Completion Contributor</a>
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/tutorials/custom_language_support/line_marker_provider.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>8. Line Marker Provider</h1>
-                    <p>线标记有助于使用装订线上的图标注释任何代码.</p>
+                    <p>线标记有助于使用装订线上的图标注释任何代码。</p>
 
-<p>这些图标可以提供相关代码的导航.</p>
+<p>这些图标可以提供相关代码的导航。</p>
 
 <a name="section" class="elem-anchor"></a>
-<h3>8.1.<a href="#section" class="anchor-link"><span></span></a></h3>
+<h3>8.1。<a href="#section" class="anchor-link"><span></span></a></h3>
 <p>定义线标记提供程序</p>
 
-<p>让我们在Java代码中注释我们的属性的用法，并提供对这些属性的定义的导航.</p>
+<p>让我们在Java代码中注释我们的属性的用法，并提供对这些属性的定义的导航。</p>
 
 <div class="code-block" data-lang="java"><code class="code-block__wrapper"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">simpleplugin</span><span class="o">;</span>
 
@@ -138,14 +135,14 @@ var _hmt = _hmt || [];
 <a name="section-1" class="elem-anchor"></a>
 <h2>实施者的更多技术细节<a href="#section-1" class="anchor-link"><span></span></a></h2>
 
-<p>*请返回行标记信息以获取您要求的确切元素.
+<p>*请返回行标记信息以获取您要求的确切元素。
     
-例如，如果为方法调用了<code class="code highlight language-text">getLineMarkerInfo()</code>，则不返回类标记信息.</p>
+例如，如果为方法调用了<code class="code highlight language-text">getLineMarkerInfo()</code>，则不返回类标记信息。</p>
 
-<p>*请尽可能小的元素返回相关的行标记信息.
+<p>*请尽可能小的元素返回相关的行标记信息。
      
-例如，不要为[<code class="code highlight language-text">PsiMethod</code>]返回方法标记(upsource:///java/java-psi-api/src/com/intellij/psi/PsiMethod.java).
-而是将其返回给<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/java/java-psi-api/src/com/intellij/psi/PsiIdentifier.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">PsiIdentifier</code></span></a>，这是此方法的名称.</p>
+例如，不要为[<code class="code highlight language-text">PsiMethod</code>]返回方法标记(upsource:///java/java-psi-api/src/com/intellij/psi/PsiMethod.java)。
+而是将其返回给<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/java/java-psi-api/src/com/intellij/psi/PsiIdentifier.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">PsiIdentifier</code></span></a>，这是此方法的名称。</p>
 
 <a name="section-2" class="elem-anchor"></a>
 <h3>更多技术细节:<a href="#section-2" class="anchor-link"><span></span></a></h3>
@@ -166,18 +163,18 @@ var _hmt = _hmt || [];
 
 <p>*所有其余元素的第二遍</p>
 
-<p>如果提供者不为任何区域返回任何内容，则会清除其线标记.</p>
+<p>如果提供者不为任何区域返回任何内容，则会清除其线标记。</p>
 
 <p>如果是，例如
 一个方法是半可见的(它的名字是可见的，但它的一部分不是)和</p>
 
 <p>一些写得不好的<a href="https://upsource.jetbrains.com/idea-ce/file/idea-ce-4f9b5f89b2a19ce700b1373a465c16b28ed8ad52/platform/lang-api/src/com/intellij/codeInsight/daemon/LineMarkerProvider.java" data-bypass="yes" target="_blank"><span><code class="code highlight language-text">LineMarkerProvider</code></span></a>返回了’PsiMethod<code class="code highlight language-text">而不是'PsiIdentifier</code>的信息，然后:</p>
 
-<p>*第一遍删除行标记信息，因为整个’PsiMethod`不可见.</p>
+<p>*第一遍删除行标记信息，因为整个’PsiMethod`不可见。</p>
 
-<p>*第二遍试图添加行标记信息，因为最后为<code class="code highlight language-text">PsiMethod</code>调用了’LineMarkerProvider`.</p>
+<p>*第二遍试图添加行标记信息，因为最后为<code class="code highlight language-text">PsiMethod</code>调用了’LineMarkerProvider`。</p>
 
-<p>结果，线标记图标会恼人地闪烁.</p>
+<p>结果，线标记图标会恼人地闪烁。</p>
 
 <p>要解决此问题，请重写<code class="code highlight language-text">LineMarkerProvider</code>以返回’PsiIdentifier<code class="code highlight language-text">而不是'PsiMethod</code>的信息:</p>
 
@@ -190,17 +187,17 @@ var _hmt = _hmt || [];
 </code></div>
 
 <a name="section-3" class="elem-anchor"></a>
-<h3>8.2.<a href="#section-3" class="anchor-link"><span></span></a></h3>
+<h3>8.2。<a href="#section-3" class="anchor-link"><span></span></a></h3>
 <p>注册行标记提供程序</p>
 
 <div class="code-block" data-lang="xml"><code class="code-block__wrapper"><span class="nt">&lt;codeInsight.lineMarkerProvider</span> <span class="na">language=</span><span class="s">"JAVA"</span> <span class="na">implementationClass=</span><span class="s">"com.simpleplugin.SimpleLineMarkerProvider"</span><span class="nt">/&gt;</span>
 </code></div>
 
 <a name="section-4" class="elem-anchor"></a>
-<h3>8.3.<a href="#section-4" class="anchor-link"><span></span></a></h3>
+<h3>8.3。<a href="#section-4" class="anchor-link"><span></span></a></h3>
 <p>运行该项目</p>
 
-<p>现在，您可以在装订线上看到图标，并可以导航到属性定义.</p>
+<p>现在，您可以在装订线上看到图标，并可以导航到属性定义。</p>
 
 <p><img src="img/line_marker.png" alt="Line Marker" /></p>
 

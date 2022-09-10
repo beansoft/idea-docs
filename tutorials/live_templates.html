@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,30 +26,21 @@
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kana112233.github.io/intellij-sdk-docs-cn//tutorials/live_templates.html" />
+    <meta property="og:url" content="https://beansoft.github.io/intellij-sdk-docs-cn//tutorials/live_templates.html" />
     <meta property="og:site_name" content="JetBrains IntelliJ Platform SDK" />
     <meta property="og:title" content="Live Templates" />
     <meta property="og:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta property="og:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta property="og:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta property="article:modified_time" content="2019-05-08T23:56:58+08:00" />
-    <!-- <meta property="article:section" content="" />
+    <!-- <meta property="article:section" content="" /> 
     <meta property="article:tag" content="" /> -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@JBPlatform" />
     <meta name="twitter:title" content="Live Templates" />
     <meta name="twitter:description" content="Documentation for working with and extending the IntelliJ Platform SDK" />
-    <meta name="twitter:image" content="https://kana112233.github.io/intellij-sdk-docs-cn/jetbrains.png" />
+    <meta name="twitter:image" content="https://beansoft.github.io/intellij-sdk-docs-cn/jetbrains.png" />
     <meta class="swiftype" name="product" data-type="string" content="/intellij-sdk-docs-cn/"></meta>
-<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"><script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?394835d134cdba7ae5b9ae1684dd1bd4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
+<link  rel="stylesheet" href="/intellij-sdk-docs-cn/app/styles.css"></head>
 <body data-id="tutorials/live_templates">
 <div class="wrapper">
     <section class="panel _nav">
@@ -66,7 +60,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="container _footer panel__footer">
                 <p><a data-bypass="true" href="//youtrack.jetbrains.com/issues/IJSDK">Send feedback</a></p>
-                <p>&copy; 2000&ndash;2019 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
+                <p>&copy; 2000&ndash;2022 <a href="//www.jetbrains.com">JetBrains</a> s.r.o.<br>
                     All rights reserved.</p>
             </div>
         </nav>
@@ -76,7 +70,7 @@ var _hmt = _hmt || [];
         <header class="panel__header">
             <div class="container">
                 <h3>IntelliJ Platform SDK DevGuide</h3>
-
+                
                 <div class="panel-trigger"></div>
             </div>
         </header>
@@ -84,16 +78,19 @@ var _hmt = _hmt || [];
             <div class="container">
                 <article class="article" data-shortcut-switcher="false">
                     <div class="navigation-links _top" data-swiftype-index="false">
-
-
+                        
+                        
                     </div>
-
+                    <a data-bypass="true" href="https://github.com/beansoft/intellij-sdk-docs-cn/edit/master/tutorials/live_templates.md" class="page-link-to-github" target="_blank" title="Edit this page on GitHub">
+                        <i class="github-icon"></i>
+                        <span class="text">Edit page</span>
+                    </a>
 
                     <h1>Live Templates</h1>
-                    <p><em>实时模板</em>是可自定义的规则，允许开发人员在编辑器中缩写重复的文本模式.
-当用户键入指定的缩写后跟可配置的<em>扩展键</em>(通常为“Tab”)时，IDE会将前面的输入序列转换为其全长输出，并更新光标位置.
-例如，考虑一个<code class="code highlight language-text">for</code>循环.
-通常，最终用户需要键入<code class="code highlight language-text">for(int i = 0; i &lt;10; i ++){&lt;Enter&gt; &lt;Tab&gt; &lt;Enter&gt; &lt;Enter&gt;} &lt;Up&gt;</code>.
+                    <p><em>实时模板</em>是可自定义的规则，允许开发人员在编辑器中缩写重复的文本模式。
+当用户键入指定的缩写后跟可配置的<em>扩展键</em>(通常为“Tab”)时，IDE会将前面的输入序列转换为其全长输出，并更新光标位置。
+例如，考虑一个<code class="code highlight language-text">for</code>循环。
+通常，最终用户需要键入<code class="code highlight language-text">for(int i = 0; i &lt;10; i ++){&lt;Enter&gt; &lt;Tab&gt; &lt;Enter&gt; &lt;Enter&gt;} &lt;Up&gt;</code>。
 这种模式可以缩短为<code class="code highlight language-text">fori &lt;Tab&gt;</code>，剩下的内容将被扩展，留下以下结构:</p>
 
 <div class="code-block" data-lang="text"><code class="code-block__wrapper">for(int i = [|]; i &lt; []; i++) {
@@ -110,8 +107,8 @@ var _hmt = _hmt || [];
 
 
                     <div class="navigation-links _bottom" data-swiftype-index="false">
-
-
+                        
+                        
                     </div>
                     <div class="last-modified">
                         Last modified: 8 May 2019
