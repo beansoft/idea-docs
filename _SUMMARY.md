@@ -1,5 +1,5 @@
 # 摘要
-
+* [汉化说明](README.md)
 * [简介](welcome.md)
 * [IntelliJ平台](intro/intellij_platform.md)
     * [贡献IntelliJ平台](basics/platform_contributions.md)
@@ -11,7 +11,6 @@
       * [SDK代码示例指南](intro/sdk_code_guidelines.md) 
     * [行为准则](CODE_OF_CONDUCT.md)
 * [获得帮助](intro/getting_help.md)
-
 ## 第一部分 - 插件
 * [简介](basics.md)
     * [插件类型](basics/types_of_plugins.md)

@@ -5,7 +5,7 @@ title: Consulting
 以下独立公司和个人提供付费插件咨询和开发服务.
 
 
-> **注意** JetBrains不对这些独立第三方公司的业绩负责也不保证其性能.
+> **NOTE** JetBrains不对这些独立第三方公司的业绩负责也不保证其性能.
 
 
 |  Name | Contact | Notes |

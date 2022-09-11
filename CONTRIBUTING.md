@@ -1,5 +1,5 @@
 ---
-title: Contributing to the IntelliJ Platform SDK
+title: 向 IntelliJ 平台 SDK 做出贡献
 ---
 
 本文档描述了我们对开源IntelliJ Platform SDK文档和示例代码的贡献指南.

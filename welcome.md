@@ -1,7 +1,5 @@
 ---
 title: IntelliJ 平台 SDK
-redirect_from:
-  - /index.html
 ---
 
 
@@ -43,6 +41,4 @@ redirect_from:
 有关最新更改,请参阅[最近更新](recent_updated.md).
 在Twitter上关注[JBPlatform](https://twitter.com/JBPlatform/),访问[JetBrains平台博客](https://blog.jetbrains.com/platform/)获取最新公告.
 
-## 备注
-本文档基于 [https://github.com/kana112233/intellij-sdk-docs-cn](https://github.com/kana112233/intellij-sdk-docs-cn) 的热心工作并有修改.
 

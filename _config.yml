@@ -1,7 +1,7 @@
 ---
-product_name: IntelliJ Platform SDK
+product_name: IntelliJ 平台 SDK
 product_version:
-product_type: DevGuide
+product_type: 开发指南
 
 url: https://beansoft.github.io
 baseurl: /idea-docs/
